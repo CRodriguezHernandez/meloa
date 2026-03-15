@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Udeebit – Soporte y Contacto</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Instrument Sans',sans-serif;background:#EEE9FF;color:#1E1B4B;}
+a{text-decoration:none;color:inherit;}
+img{display:block;}
+
+/* ── TOPBAR ── */
+.topbar{background:linear-gradient(90deg,#4C1D95,#7C3AED,#4F46E5);color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:500;position:relative;z-index:300;}
+.topbar strong{font-weight:700;}.topbar a{color:#FDE68A;text-decoration:underline;font-weight:600;margin-left:8px;}
+
+/* ── NAVBAR ── */
+.u-navbar{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);border-bottom:1px solid #E5E7EB;display:flex;align-items:center;padding:0 40px;height:64px;box-shadow:0 2px 16px rgba(0,0,0,.06);}
+.u-nav-logo{display:flex;align-items:center;margin-right:48px;text-decoration:none;}
+.u-nav-links{display:flex;flex:1;}
+.u-nav-link{padding:0 18px;height:64px;display:flex;align-items:center;font-size:14px;font-weight:500;color:#6B7280;transition:.2s;text-decoration:none;border-bottom:2px solid transparent;}
+.u-nav-link:hover{color:#7C3AED;}.u-nav-link.active{color:#7C3AED;border-bottom-color:#7C3AED;}
+.u-nav-right{display:flex;align-items:center;gap:12px;margin-left:auto;}
+.u-btn{display:inline-flex;align-items:center;border-radius:10px;font-weight:600;cursor:pointer;transition:.2s;border:none;font-family:inherit;font-size:14px;padding:10px 22px;text-decoration:none;}
+.u-btn-outline{background:transparent;border:1.5px solid #7C3AED;color:#7C3AED;}.u-btn-outline:hover{background:#EDE9FE;}
+.u-btn-primary{background:#7C3AED;color:#fff;box-shadow:0 4px 14px rgba(124,58,237,.35);}.u-btn-primary:hover{background:#6D28D9;transform:translateY(-1px);}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,#2D1B69 0%,#4C1D95 45%,#4338CA 100%);padding:56px 40px;}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:start;}
+.hero-left{padding-top:8px;}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(253,230,138,.15);border:1px solid rgba(253,230,138,.3);color:#FDE68A;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:700;margin-bottom:20px;text-transform:uppercase;letter-spacing:.5px;}
+.hero-left h1{font-family:'Sora',sans-serif;font-size:40px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:16px;}
+.hero-left h1 em{color:#C4B5FD;font-style:normal;}
+.hero-left p{font-size:14px;line-height:1.75;color:rgba(255,255,255,.75);margin-bottom:28px;max-width:480px;}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap;}
+.hero-badge{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:10px 16px;font-size:13px;color:rgba(255,255,255,.85);}
+.hero-badge svg{flex-shrink:0;color:#A78BFA;}
+
+/* ── FORM BOX ── */
+.form-box{background:#fff;border-radius:20px;padding:28px;box-shadow:0 16px 48px rgba(0,0,0,.18);}
+.form-box h3{font-family:'Sora',sans-serif;font-size:22px;font-weight:800;color:#1E1B4B;margin-bottom:4px;}
+.form-box .form-sub{font-size:13px;color:#6B7280;margin-bottom:20px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.field{display:flex;flex-direction:column;gap:5px;}
+.field.full{grid-column:1/-1;}
+.field label{font-size:12px;color:#4C1D95;font-weight:700;text-transform:uppercase;letter-spacing:.3px;}
+.field input,.field select,.field textarea{border:1.5px solid #E4E4F3;border-radius:10px;padding:11px 13px;font-family:inherit;font-size:14px;color:#1E1B4B;background:#FAFAFF;outline:none;transition:.2s;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#7C3AED;box-shadow:0 0 0 3px rgba(124,58,237,.1);}
+.field textarea{min-height:110px;resize:vertical;}
+.form-note{font-size:12px;color:#9CA3AF;margin:8px 0 16px;}
+.btn-send{width:100%;background:linear-gradient(135deg,#7C3AED,#4F46E5);color:#fff;border:none;border-radius:11px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:.2s;box-shadow:0 4px 16px rgba(124,58,237,.35);}
+.btn-send:hover{filter:brightness(1.07);transform:translateY(-1px);}
+
+/* ── CANALES SECTION ── */
+.channels-section{background:linear-gradient(180deg,#1E1B4B 0%,#2D1B69 50%,#1E1B4B 100%);padding:64px 40px;}
+.channels-inner{max-width:1200px;margin:0 auto;}
+.section-head{text-align:center;margin-bottom:36px;}
+.section-head h2{font-family:'Sora',sans-serif;font-size:34px;font-weight:800;color:#fff;margin-bottom:10px;}
+.section-head p{font-size:15px;color:rgba(255,255,255,.65);max-width:560px;margin:0 auto;}
+.support-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.support-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:26px;transition:.3s;backdrop-filter:blur(8px);}
+.support-card:hover{transform:translateY(-4px);border-color:rgba(167,139,250,.5);box-shadow:0 12px 40px rgba(0,0,0,.25);}
+.support-icon{width:48px;height:48px;border-radius:14px;background:rgba(124,58,237,.25);border:1px solid rgba(167,139,250,.3);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.support-icon svg{color:#C4B5FD;}
+.support-title{font-family:'Sora',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:6px;}
+.support-sub{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:12px;line-height:1.55;}
+.support-contact{font-size:15px;font-weight:700;color:#FDE68A;margin-bottom:14px;}
+.support-card a.support-cta{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#A78BFA;font-weight:600;border:1px solid rgba(167,139,250,.3);border-radius:8px;padding:7px 14px;transition:.2s;}
+.support-card a.support-cta:hover{background:rgba(167,139,250,.15);color:#fff;border-color:rgba(167,139,250,.6);}
+
+/* ── FAQ SECTION ── */
+.faq-section{background:#EEE9FF;padding:64px 40px;}
+.faq-inner{max-width:900px;margin:0 auto;}
+.faq-head{text-align:center;margin-bottom:36px;}
+.faq-head h2{font-family:'Sora',sans-serif;font-size:32px;font-weight:800;color:#1E1B4B;margin-bottom:10px;}
+.faq-head p{font-size:15px;color:#6B7280;}
+.faq-list{display:flex;flex-direction:column;gap:10px;}
+.faq-item{background:#fff;border:1px solid #E4E0FF;border-radius:14px;overflow:hidden;}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;cursor:pointer;font-size:15px;font-weight:600;color:#1E1B4B;gap:12px;transition:.2s;}
+.faq-q:hover{color:#7C3AED;}
+.faq-q svg{flex-shrink:0;color:#7C3AED;transition:.2s;}
+.faq-item.open .faq-q svg{transform:rotate(180deg);}
+.faq-a{display:none;padding:0 22px 18px;font-size:14px;color:#6B7280;line-height:1.7;border-top:1px solid #F0EEFF;}
+.faq-item.open .faq-a{display:block;}
+
+/* ── CTA BANNER ── */
+.cta-section{background:linear-gradient(135deg,#4C1D95,#7C3AED,#4338CA);padding:56px 40px;text-align:center;}
+.cta-inner{max-width:620px;margin:0 auto;}
+.cta-section h2{font-family:'Sora',sans-serif;font-size:32px;font-weight:800;color:#fff;margin-bottom:12px;}
+.cta-section p{font-size:15px;color:rgba(255,255,255,.75);margin-bottom:28px;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-cta-white{background:#fff;color:#4C1D95;border:none;border-radius:12px;padding:13px 28px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;transition:.2s;text-decoration:none;display:inline-flex;}
+.btn-cta-white:hover{background:#F5F3FF;transform:translateY(-1px);}
+.btn-cta-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);border-radius:12px;padding:13px 28px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:.2s;text-decoration:none;display:inline-flex;}
+.btn-cta-outline:hover{border-color:#fff;background:rgba(255,255,255,.1);}
+
+/* ── FOOTER ── */
+.u-footer{background:#0F0E1A;color:rgba(255,255,255,.7);padding:56px 40px 28px;}
+.u-footer-inner{max-width:1200px;margin:0 auto;}
+.u-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+.u-footer-brand-logo{display:flex;align-items:center;margin-bottom:16px;text-decoration:none;}
+.u-footer-desc{font-size:12px;line-height:1.7;margin-bottom:32px;text-align:justify;color:rgba(255,255,255,.55);}
+.u-footer-socials{display:flex;gap:10px;}
+.u-footer-social{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;color:rgba(255,255,255,.7);text-decoration:none;}
+.u-footer-social:hover{background:#7C3AED;}
+.u-footer-col-title{font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:18px;}
+.u-footer-link{display:block;font-size:13px;color:rgba(255,255,255,.55);margin-bottom:10px;text-decoration:none;transition:.2s;}
+.u-footer-link:hover{color:#fff;}
+.u-footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.35);}
+.u-footer-badges{display:flex;gap:12px;align-items:center;}
+.u-footer-badge{background:rgba(255,255,255,.06);border-radius:6px;padding:5px 10px;font-size:11px;color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.08);}
+
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .support-grid{grid-template-columns:1fr 1fr;}
+  .u-footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
+}
+@media(max-width:640px){
+  .u-navbar{padding:0 16px;}.u-nav-links{display:none;}
+  .hero,.channels-section,.faq-section,.cta-section{padding-left:16px;padding-right:16px;}
+  .hero-left h1{font-size:28px;}
+  .support-grid{grid-template-columns:1fr;}
+  .form-grid{grid-template-columns:1fr;}
+  .u-footer{padding:40px 16px 24px;}
+  .u-footer-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">🔥 <strong>Oferta especial:</strong> Formaciones gratuitas por tiempo limitado. ¡No pierdas tu acceso! <a href="udeebit-landing-final.html">Reclamar ahora →</a></div>
+
+<!-- NAVBAR -->
+<nav class="u-navbar">
+  <a class="u-nav-logo" href="udeebit-landing-final.html">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 56" height="36" style="display:block;">
+      <text x="4" y="44" font-family="'Sora','Poppins','Arial Black',sans-serif" font-weight="800" font-size="46" fill="#4E0C82" letter-spacing="-0.5">Udee</text>
+      <text x="132" y="44" font-family="'Sora','Poppins','Arial Black',sans-serif" font-weight="800" font-size="46" fill="#1a1a1a" letter-spacing="-0.5">bit</text>
+    </svg>
+  </a>
+  <div class="u-nav-links">
+    <a class="u-nav-link" href="udeebit-cursos.html">Formación</a>
+    <a class="u-nav-link" href="udeebit-registro.html">Programas</a>
+    <a class="u-nav-link" href="udeebit-blog.html">Blog</a>
+    <a class="u-nav-link active" href="udeebit-contacto.html">Soporte</a>
+  </div>
+  <div class="u-nav-right">
+    <a class="u-btn u-btn-outline" href="udeebit-login.html">Iniciar sesión</a>
+    <a class="u-btn u-btn-primary" href="udeebit-registro.html">Empieza ahora</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">Canales Oficiales de Atención</div>
+      <h1>Soporte<br><em>en línea</em></h1>
+      <p>Si tienes alguna pregunta, inquietud o solicitud relacionada con la plataforma, acceso a formaciones, membresías o cualquier otro aspecto de UDEEBIT, estamos aquí para ayudarte a través de nuestros canales oficiales.</p>
+      <div class="hero-badges">
+        <div class="hero-badge">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Respuesta en &lt;24h
+        </div>
+        <div class="hero-badge">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.93a16 16 0 0 0 6.29 6.29l1.27-.8a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          WhatsApp directo
+        </div>
+        <div class="hero-badge">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Datos protegidos
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <form class="form-box" id="form-contacto" onsubmit="event.preventDefault();this.innerHTML='<div style=\'text-align:center;padding:40px 0\'><div style=\'font-size:48px;margin-bottom:16px\'>✅</div><h3 style=\'color:#7C3AED;margin-bottom:8px\'>¡Mensaje enviado!</h3><p style=\'color:#6B7280;font-size:14px\'>Te responderemos en menos de 24 horas.</p></div>'">
+      <h3>Formulario de contacto</h3>
+      <p class="form-sub">Completa el formulario y te respondemos a la brevedad.</p>
+      <div class="form-grid">
+        <div class="field">
+          <label for="nombre">Nombre completo</label>
+          <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+        </div>
+        <div class="field">
+          <label for="correo">Correo electrónico</label>
+          <input id="correo" name="correo" type="email" placeholder="tu@correo.com" required>
+        </div>
+        <div class="field">
+          <label for="telefono">WhatsApp</label>
+          <input id="telefono" name="telefono" type="tel" placeholder="+57 ...">
+        </div>
+        <div class="field">
+          <label for="tema">Tema</label>
+          <select id="tema" name="tema" required>
+            <option value="" selected disabled>Selecciona una opción</option>
+            <option value="acceso">Acceso a plataforma</option>
+            <option value="formacion">Formación y membresías</option>
+            <option value="tecnico">Soporte técnico</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Escribe aquí tu solicitud..." required></textarea>
+        </div>
+      </div>
+      <p class="form-note">Al enviar aceptas que podamos contactarte por correo y/o WhatsApp para resolver tu solicitud.</p>
+      <button class="btn-send" type="submit">Enviar mensaje →</button>
+    </form>
+  </div>
+</section>
+
+<!-- CANALES DE CONTACTO -->
+<section class="channels-section">
+  <div class="channels-inner">
+    <div class="section-head">
+      <h2>Canales de contacto</h2>
+      <p>Elige el medio que mejor se adapte a tu necesidad. Para incidencias urgentes de acceso, usa WhatsApp y correo en paralelo.</p>
+    </div>
+    <div class="support-grid">
+
+      <article class="support-card">
+        <div class="support-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h3 class="support-title">Correo de soporte</h3>
+        <p class="support-sub">Consultas técnicas, facturación y acceso a la plataforma</p>
+        <p class="support-contact"><a href="mailto:admin@udeebit.com">admin@udeebit.com</a></p>
+        <a href="mailto:admin@udeebit.com" class="support-cta">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Escribir correo
+        </a>
+      </article>
+
+      <article class="support-card">
+        <div class="support-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.93a16 16 0 0 0 6.29 6.29l1.27-.8a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h3 class="support-title">WhatsApp</h3>
+        <p class="support-sub">Atención rápida para dudas puntuales sobre cursos y acceso</p>
+        <p class="support-contact">+57 300 000 0000</p>
+        <a href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer" class="support-cta">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.93a16 16 0 0 0 6.29 6.29l1.27-.8a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Abrir WhatsApp
+        </a>
+      </article>
+
+      <article class="support-card">
+        <div class="support-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3 class="support-title">Formulario web</h3>
+        <p class="support-sub">Solicitud completa con contexto. Ideal para temas que requieren seguimiento</p>
+        <p class="support-contact">Respuesta por correo</p>
+        <a href="#form-contacto" class="support-cta">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Completar formulario
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PREGUNTAS FRECUENTES -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-head">
+      <h2>Preguntas frecuentes</h2>
+      <p>Respuestas rápidas a las dudas más comunes de nuestros estudiantes.</p>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ¿Cómo accedo a las formaciones después de registrarme?
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Una vez que completes tu registro recibirás un correo de confirmación con tus credenciales de acceso. Desde ese momento puedes entrar a la plataforma con tu usuario y contraseña y acceder a todas las formaciones disponibles.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ¿Los cursos tienen algún costo adicional?
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">No. Todas las formaciones de la plataforma están incluidas dentro de tu suscripción. No hay pagos adicionales por curso ni por módulo. Un solo acceso, todo el contenido.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ¿Puedo acceder desde cualquier dispositivo?
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Sí. La plataforma está optimizada para ordenadores, tablets y móviles. Puedes estudiar desde cualquier dispositivo con conexión a internet sin necesidad de instalar ninguna aplicación.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ¿Cuánto tarda en resolverse una solicitud de soporte?
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Nuestro tiempo de respuesta habitual es inferior a 24 horas en días laborales. Para incidencias urgentes relacionadas con el acceso, recomendamos contactarnos también por WhatsApp para una atención más rápida.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ¿Cómo cancelo o modifico mi suscripción?
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Puedes gestionar o cancelar tu suscripción en cualquier momento desde el panel de tu cuenta o contactándonos directamente por correo a <a href="mailto:admin@udeebit.com">admin@udeebit.com</a>. No hay penalizaciones por cancelación anticipada.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>¿Todavía no eres miembro?</h2>
+    <p>Regístrate gratis y forma parte de más de 10,000 estudiantes que aprenden a operar en los mercados con UDEEBIT.</p>
+    <div class="cta-btns">
+      <a class="btn-cta-white" href="udeebit-registro.html">Registrarme gratis →</a>
+      <a class="btn-cta-outline" href="udeebit-cursos.html">Ver formaciones</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="u-footer">
+  <div class="u-footer-inner">
+    <div class="u-footer-grid">
+      <div>
+        <a class="u-footer-brand-logo" href="udeebit-landing-final.html">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 56" height="32" style="display:block;">
+            <text x="4" y="44" font-family="'Sora','Poppins','Arial Black',sans-serif" font-weight="800" font-size="46" fill="#ffffff" letter-spacing="-0.5">Udee</text>
+            <text x="132" y="44" font-family="'Sora','Poppins','Arial Black',sans-serif" font-weight="800" font-size="46" fill="#A78BFA" letter-spacing="-0.5">bit</text>
+          </svg>
+        </a>
+        <p class="u-footer-desc">UDEEBIT ofrece formación en trading, inversiones y mercados financieros a través de programas educativos diseñados para desarrollar conocimiento y criterio en el mundo de las finanzas.</p>
+        <div class="u-footer-socials">
+          <a class="u-footer-social" href="https://www.youtube.com/@Udeebit" title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a class="u-footer-social" href="https://www.tiktok.com/@udeebit" title="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></a>
+          <a class="u-footer-social" href="https://www.instagram.com/udeebiit?igsh=bnVxM25vMG03enpo&utm_source=qr" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a class="u-footer-social" href="https://www.facebook.com/share/1AtNDkmcGt/" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a class="u-footer-social" href="https://x.com/Udeebit" title="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="u-footer-col-title">Formaciones</div>
+        <a class="u-footer-link" href="udeebit-curso-detalle.html">Trading Core: Fundamentos y Práctica</a>
+        <a class="u-footer-link" href="udeebit-curso-cripto.html">Cripto y Blockchain</a>
+        <a class="u-footer-link" href="udeebit-curso-inversiones.html">Inversiones y Estrategias de Patrimonio</a>
+        <a class="u-footer-link" href="udeebit-curso-algoritmico.html">Inversión Algorítmica con MetaTrader</a>
+      </div>
+      <div>
+        <div class="u-footer-col-title">Compañía</div>
+        <a class="u-footer-link" href="udeebit-sobre-nosotros.html">Sobre nosotros</a>
+        <a class="u-footer-link" href="udeebit-blog.html">Blog</a>
+        <a class="u-footer-link" href="udeebit-contacto.html">Soporte</a>
+        <a class="u-footer-link" href="udeebit-terminos-condiciones.html">Términos y Condiciones</a>
+        <a class="u-footer-link" href="udeebit-politica-privacidad.html">Política de Privacidad</a>
+      </div>
+      <div>
+        <div class="u-footer-col-title">Newsletter</div>
+        <p style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:14px;line-height:1.6">Señales de trading y análisis de mercado directo a tu correo.</p>
+        <input type="email" placeholder="Tu correo electrónico" style="width:100%;padding:11px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:#fff;font-size:13px;outline:none;margin-bottom:8px;font-family:inherit">
+        <button style="width:100%;background:#7C3AED;color:#fff;border:none;border-radius:8px;padding:11px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Enviar →</button>
+      </div>
+    </div>
+    <div class="u-footer-bottom">
+      <span>© 2026 Udeebit. Todos los derechos reservados.</span>
+      <div class="u-footer-badges">
+        <span class="u-footer-badge">🔒 SSL Seguro</span>
+        <span class="u-footer-badge">✅ Certificado</span>
+        <a class="u-footer-link" style="margin:0" href="udeebit-politica-privacidad.html">Privacidad</a>
+        <a class="u-footer-link" style="margin:0" href="udeebit-terminos-condiciones.html">Términos</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    item.classList.toggle('open');
+  }
+
+  (function () {
+    const form = document.getElementById('form-contacto');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('¡Gracias! Tu solicitud fue enviada. Te responderemos en breve.');
+      form.reset();
+    });
+  })();
+</script>
+</body>
+</html>

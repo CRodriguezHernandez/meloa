@@ -1,0 +1,431 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Udeebit - Terminos y Condiciones</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --p: #7C3AED;
+  --p2: #6D28D9;
+  --pa: #EDE9FE;
+  --pa2: #F5F3FF;
+  --txt: #1E1B4B;
+  --muted: #6B7280;
+  --border: #E5E7EB;
+  --bg: #F5F4FF;
+  --card: #FFFFFF;
+  --r: 12px;
+  --r2: 18px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--txt);
+  line-height: 1.65;
+}
+a { color: inherit; text-decoration: none; }
+
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center;
+  padding: 0 32px; height: 58px;
+  box-shadow: 0 1px 8px rgba(0,0,0,.06);
+}
+.nav-logo { display: flex; align-items: center; gap: 9px; margin-right: 32px; text-decoration: none; }
+.nav-logo-img { height: 32px; width: auto; display: block; }
+.nav-logo-mobile { display: none; }
+.nav-logo-icon {
+  width: 34px; height: 34px; border-radius: 10px;
+  background: linear-gradient(135deg, #7C3AED, #4F46E5);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Sora', sans-serif; font-weight: 800; color: #fff; font-size: 18px;
+}
+.nav-logo-text { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 18px; }
+.nav-links { display: flex; flex: 1; }
+.nav-link {
+  padding: 0 16px; height: 58px; display: flex; align-items: center;
+  font-size: 14px; font-weight: 500; color: var(--muted);
+  border-bottom: 2px solid transparent; transition: .2s;
+}
+.nav-link:hover, .nav-link.active { color: var(--p); border-bottom-color: var(--p); }
+.nav-right { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+.btn-nav {
+  background: var(--p); color: #fff; border: none; border-radius: 10px;
+  padding: 9px 16px; font-size: 13px; font-weight: 700;
+  cursor: pointer; font-family: inherit;
+}
+.btn-nav:hover { background: var(--p2); }
+.btn-nav.btn-outline {
+  background: #fff;
+  color: var(--p);
+  border: 1px solid #C4B5FD;
+}
+.btn-nav.btn-outline:hover {
+  background: #F5F3FF;
+}
+
+.ticker {
+  background: #fff; border-bottom: 1px solid var(--border);
+  padding: 8px 32px; font-size: 12px; color: var(--muted);
+}
+
+.breadcrumb {
+  padding: 12px 32px; font-size: 13px; color: var(--muted);
+  display: flex; align-items: center; gap: 6px;
+  background: #fff; border-bottom: 1px solid var(--border);
+}
+.breadcrumb .current { color: var(--txt); font-weight: 600; }
+
+.hero {
+  padding: 28px 32px 12px;
+}
+.hero-card {
+  max-width: 1200px; margin: 0 auto;
+  background: linear-gradient(135deg, #1E1B4B, #4C1D95 60%, #7C3AED);
+  color: #fff; border-radius: var(--r2);
+  padding: 28px 30px;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .5px; padding: 5px 12px;
+  border-radius: 999px; background: rgba(253,230,138,.18);
+  color: #FDE68A; border: 1px solid rgba(253,230,138,.28);
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-family: 'Sora', sans-serif; font-size: 34px;
+  font-weight: 800; line-height: 1.15; margin-bottom: 8px;
+}
+.hero p { color: rgba(255,255,255,.82); font-size: 14px; }
+
+.layout {
+  max-width: 1200px; margin: 0 auto;
+  padding: 18px 32px 34px;
+  display: grid; grid-template-columns: 280px 1fr; gap: 20px;
+}
+.toc {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 16px;
+  height: fit-content; position: sticky; top: 86px;
+}
+.toc h3 {
+  font-family: 'Sora', sans-serif; font-size: 14px; margin-bottom: 10px;
+}
+.toc ul { list-style: none; display: grid; gap: 8px; }
+.toc a {
+  font-size: 13px; color: var(--muted);
+  padding: 7px 8px; border-radius: 8px; display: block;
+}
+.toc a:hover { background: var(--pa2); color: var(--p); }
+
+.content {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--r2); padding: 24px;
+}
+.content .intro {
+  font-size: 15px; color: #373361; margin-bottom: 16px;
+}
+.section {
+  border-top: 1px solid #EFEFF6;
+  padding-top: 18px; margin-top: 18px;
+}
+.section:first-of-type { border-top: 0; margin-top: 8px; padding-top: 0; }
+.section h2 {
+  font-family: 'Sora', sans-serif; font-size: 19px;
+  margin-bottom: 10px; line-height: 1.25;
+}
+.section p {
+  font-size: 14px; color: #3D3A68;
+  margin-bottom: 10px;
+}
+
+footer {
+  margin-top: 16px; background: #fff; border-top: 1px solid var(--border);
+  padding: 16px 32px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+}
+.footer-logo { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1rem; }
+.footer-copy { font-size: .78rem; color: var(--muted); }
+.footer-links { margin-left: auto; display: flex; gap: 1.2rem; }
+.footer-links a { font-size: .78rem; color: var(--muted); }
+.footer-links a:hover { color: var(--p); }
+
+@media (max-width: 980px) {
+  .layout { grid-template-columns: 1fr; }
+  .toc { position: static; }
+}
+@media (max-width: 760px) {
+  .navbar { padding: 0 14px; }
+  .nav-links { display: none; }
+  .ticker, .breadcrumb, .hero { padding-left: 14px; padding-right: 14px; }
+  .hero h1 { font-size: 27px; }
+  .layout { padding: 14px; }
+  .content { padding: 16px; }
+  footer { padding: 14px; }
+  .footer-links { margin-left: 0; width: 100%; }
+  .nav-logo-desktop, .footer-logo-desktop { display: none; }
+  .nav-logo-mobile, .footer-logo-mobile { display: block; }
+  .nav-logo-mobile { height: 30px; }
+  .footer-logo-mobile { height: 30px; }
+}
+/* Landing footer shared across all windows */
+.footer {
+  background:#0F0E1A; color:rgba(255,255,255,.7);
+  padding:56px 40px 28px;
+}
+.footer-inner { max-width:1200px; margin:0 auto; }
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px; }
+.footer-brand-logo { display:flex; align-items:center; gap:10px; margin-bottom:16px; text-decoration:none; width:fit-content; }
+.footer-logo-img { height: 34px; width: auto; display: block; }
+.footer-logo-mobile { display: none; }
+@media (max-width: 760px) {
+  .nav-logo-desktop, .footer-logo-desktop { display: none; }
+  .nav-logo-mobile, .footer-logo-mobile { display: block; }
+  .nav-logo-mobile { height: 30px; }
+  .footer-logo-mobile { height: 30px; }
+}
+.footer-brand-logo .logo-icon {
+  width:36px; height:36px; background:linear-gradient(135deg,#7C3AED,#4F46E5);
+  border-radius:10px; display:flex; align-items:center; justify-content:center;
+  font-family:'Sora',sans-serif; font-weight:800; color:#fff; font-size:18px;
+}
+.footer-brand-logo .logo-txt { font-family:'Sora',sans-serif; font-weight:800; font-size:18px; color:#fff; }
+.footer-desc { font-size:14px; line-height:1.7; margin-bottom:24px; }
+.footer-socials { display:flex; gap:10px; }
+.footer-social {
+  width:36px; height:36px; border-radius:8px; background:rgba(255,255,255,.08);
+  display:flex; align-items:center; justify-content:center; font-size:16px;
+  cursor:pointer; transition:.2s;
+}
+.footer-social:hover { background:var(--p); }
+.footer-col-title { font-family:'Sora',sans-serif; font-size:14px; font-weight:700; color:#fff; margin-bottom:18px; }
+.footer-link { display:block; font-size:13px; color:rgba(255,255,255,.55); margin-bottom:10px; cursor:pointer; transition:.2s; }
+.footer-link:hover { color:#fff; }
+.footer-bottom {
+  border-top:1px solid rgba(255,255,255,.08); padding-top:24px;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  font-size:12px; color:rgba(255,255,255,.35);
+}
+.footer-badges { display:flex; gap:12px; align-items:center; }
+.footer-badge {
+  background:rgba(255,255,255,.06); border-radius:6px;
+  padding:5px 10px; font-size:11px; color:rgba(255,255,255,.4);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+/* ── SHARED NAV & FOOTER ── */
+.topbar{background:linear-gradient(90deg,#4C1D95,#7C3AED,#4F46E5);color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:500;position:relative;z-index:300;}
+.topbar strong{font-weight:700;}.topbar a{color:#FDE68A;text-decoration:underline;font-weight:600;margin-left:8px;}
+.u-navbar{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);border-bottom:1px solid #E5E7EB;display:flex;align-items:center;padding:0 40px;height:64px;box-shadow:0 2px 16px rgba(0,0,0,.06);}
+.u-nav-logo{display:flex;align-items:center;margin-right:48px;text-decoration:none;}
+.u-nav-links{display:flex;flex:1;}
+.u-nav-link{padding:0 18px;height:64px;display:flex;align-items:center;font-size:14px;font-weight:500;color:#6B7280;transition:.2s;text-decoration:none;font-family:'Instrument Sans','DM Sans',sans-serif;}
+.u-nav-link:hover,.u-nav-link.active{color:#7C3AED;}
+.u-nav-right{display:flex;align-items:center;gap:12px;margin-left:auto;}
+.u-btn{display:inline-flex;align-items:center;border-radius:10px;font-weight:600;cursor:pointer;transition:.2s;border:none;font-family:'Instrument Sans','DM Sans',sans-serif;font-size:14px;padding:10px 22px;text-decoration:none;}
+.u-btn-outline{background:transparent;border:1.5px solid #7C3AED;color:#7C3AED;}.u-btn-outline:hover{background:#EDE9FE;}
+.u-btn-primary{background:#7C3AED;color:#fff;box-shadow:0 4px 14px rgba(124,58,237,.35);}.u-btn-primary:hover{background:#6D28D9;transform:translateY(-1px);}
+.u-footer{background:#0F0E1A;color:rgba(255,255,255,.7);padding:56px 40px 28px;}
+.u-footer-inner{max-width:1200px;margin:0 auto;}
+.u-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+.u-footer-brand-logo{display:flex;align-items:center;margin-bottom:16px;text-decoration:none;}
+.u-footer-desc{font-size:12px;line-height:1.7;margin-bottom:32px;text-align:justify;color:rgba(255,255,255,.55);}
+.u-footer-socials{display:flex;gap:10px;}
+.u-footer-social{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;color:rgba(255,255,255,.7);text-decoration:none;}
+.u-footer-social:hover{background:#7C3AED;}
+.u-footer-col-title{font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:18px;}
+.u-footer-link{display:block;font-size:13px;color:rgba(255,255,255,.55);margin-bottom:10px;text-decoration:none;transition:.2s;cursor:pointer;}
+.u-footer-link:hover{color:#fff;}
+.u-footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.35);}
+.u-footer-badges{display:flex;gap:12px;align-items:center;}
+.u-footer-badge{background:rgba(255,255,255,.06);border-radius:6px;padding:5px 10px;font-size:11px;color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.08);}
+
+</style>
+</head>
+<body>
+<!-- TOPBAR -->
+<div class="topbar">🔥 <strong>Oferta especial:</strong> Formaciones gratuitas por tiempo limitado. ¡No pierdas tu acceso! <a href="udeebit-landing-final.html">Reclamar ahora →</a></div>
+
+<!-- NAVBAR -->
+<nav class="u-navbar">
+  <a class="u-nav-logo" href="udeebit-landing-final.html" aria-label="Udeebit inicio">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 56" height="36" style="display:block;">
+      <text x="4" y="44" font-family="'Sora','Poppins','Arial Black',sans-serif" font-weight="800" font-size="46" fill="#4E0C82" letter-spacing="-0.5">Udee</text>
+      <text x="132" y="44" font-family="'Sora','Poppins','Arial Black',sans-serif" font-weight="800" font-size="46" fill="#1a1a1a" letter-spacing="-0.5">bit</text>
+    </svg>
+  </a>
+  <div class="u-nav-links">
+    <a class="u-nav-link active" href="udeebit-cursos.html">Formación</a>
+    <a class="u-nav-link active" href="udeebit-registro.html">Programas</a>
+    <a class="u-nav-link active" href="udeebit-blog.html">Blog</a>
+    <a class="u-nav-link active" href="udeebit-contacto.html">Soporte</a>
+  </div>
+  <div class="u-nav-right">
+    <a class="u-btn u-btn-outline" href="udeebit-login.html">Iniciar sesión</a>
+    <a class="u-btn u-btn-primary" href="udeebit-registro.html">Empieza ahora</a>
+  </div>
+</nav>
+
+<div class="ticker">Documento base para publicacion en sitio web - Marca: UDEEBIT - Este acuerdo tiene caracter vinculante entre UDEEBIT y el usuario</div>
+
+<div class="breadcrumb">
+  <a href="udeebit-landing-final.html">Inicio</a>
+  <span>/</span>
+  <span class="current">Terminos y Condiciones</span>
+</div>
+
+<section class="hero">
+  <div class="hero-card">
+    <div class="hero-tag">Documento Contractual</div>
+    <h1>Terminos y Condiciones de UDEEBIT</h1>
+    <p>Ultima actualizacion: [colocar fecha] - Nota importante: este documento tiene caracter educativo, informativo y contractual, y debera ser revisado por asesoria legal local antes de su publicacion definitiva.</p>
+  </div>
+</section>
+
+<main class="layout">
+  <aside class="toc">
+    <h3>Indice</h3>
+    <ul>
+      <li><a href="#s1">1. Capacidad legal</a></li>
+      <li><a href="#s2">2. Naturaleza de UDEEBIT</a></li>
+      <li><a href="#s3">3. Fines educativos</a></li>
+      <li><a href="#s4">4. Riesgos de inversion</a></li>
+      <li><a href="#s5">5. No asesoramiento</a></li>
+      <li><a href="#s6">6. Sin garantias</a></li>
+      <li><a href="#s7">7. Responsabilidad personal</a></li>
+      <li><a href="#s8">8. Testimonios</a></li>
+      <li><a href="#s9">9. Propiedad intelectual</a></li>
+      <li><a href="#s10">10. Licencia limitada</a></li>
+      <li><a href="#s11">11. Prohibicion de difusion</a></li>
+      <li><a href="#s12">12. Cuentas y credenciales</a></li>
+      <li><a href="#s13">13. Conducta del usuario</a></li>
+      <li><a href="#s14">14. Servicios y productos</a></li>
+      <li><a href="#s15">15. Pagos</a></li>
+      <li><a href="#s16">16. Suscripciones</a></li>
+      <li><a href="#s17">17. Reembolsos</a></li>
+      <li><a href="#s18">18. Disponibilidad</a></li>
+      <li><a href="#s19">19. Terceros</a></li>
+      <li><a href="#s20">20. Privacidad</a></li>
+      <li><a href="#s21">21. Suspension</a></li>
+      <li><a href="#s22">22. Indemnizacion</a></li>
+      <li><a href="#s23">23. Limitacion</a></li>
+      <li><a href="#s24">24. Chargebacks</a></li>
+      <li><a href="#s25">25. Uso de imagen</a></li>
+      <li><a href="#s26">26. Modificaciones</a></li>
+      <li><a href="#s27">27. Ley aplicable</a></li>
+      <li><a href="#s28">28. Divisibilidad</a></li>
+      <li><a href="#s29">29. Acuerdo completo</a></li>
+      <li><a href="#s30">30. Contacto</a></li>
+    </ul>
+  </aside>
+
+  <article class="content">
+    <p class="intro">Los presentes Terminos y Condiciones regulan el acceso, navegacion, uso, compra, suscripcion, participacion y aprovechamiento de los programas, productos, servicios, indicadores, herramientas, clases, mentorias, recursos descargables, materiales audiovisuales, documentos, software, comunidades, grupos, webinars, transmisiones, boletines, publicaciones, contenido educativo y demas comunicaciones ofrecidas por UDEEBIT (en adelante, "UDEEBIT", "la Empresa", "nosotros" o "nuestro"), ya sea a traves de su sitio web, plataformas educativas, canales digitales, comunidades privadas, redes sociales, aplicaciones, aulas virtuales o cualquier otra forma de interaccion relacionada.</p>
+    <p class="intro">Este acuerdo constituye un contrato vinculante entre UDEEBIT y usted, en su condicion de usuario, visitante, cliente, alumno, miembro, suscriptor, comprador o participante de cualquiera de nuestros Servicios.</p>
+    <p class="intro">Lea cuidadosamente estos Terminos y Condiciones antes de acceder, navegar, registrarse, comprar o utilizar cualquier parte de nuestros Servicios. Al acceder o utilizar nuestros Servicios, usted declara que ha leido, entendido y aceptado quedar obligado por estos Terminos y Condiciones, asi como por nuestra Politica de Privacidad y cualesquiera otras politicas, avisos o reglas complementarias que resulten aplicables.</p>
+    <p class="intro">Si usted no esta de acuerdo con estos Terminos y Condiciones, debera abstenerse de utilizar nuestros Servicios.</p>
+
+    <section class="section" id="s1"><h2>1. Declaraciones del usuario y capacidad legal</h2><p>Al acceder o utilizar UDEEBIT, usted declara y garantiza que: tiene al menos dieciocho (18) anos de edad; posee capacidad legal suficiente para contratar; la informacion que suministra es verdadera, exacta y actualizada; utilizara nuestros Servicios de conformidad con la ley y con estos Terminos; y acepta quedar vinculado por las condiciones aqui establecidas.</p><p>Cualquier uso por parte de menores de edad se considera no autorizado y contrario a estos Terminos.</p></section>
+    <section class="section" id="s2"><h2>2. Objeto y naturaleza de UDEEBIT</h2><p>UDEEBIT es una academia no centralizada de educacion en inversiones, mercados, especulacion, trading y productos financieros. Su finalidad es ofrecer contenidos, herramientas, clases, recursos y experiencias formativas de caracter educativo e informativo para fomentar el conocimiento, la formacion y el desarrollo analitico de los usuarios interesados en los mercados financieros.</p><p>UDEEBIT puede contar con docentes, instructores, mentores, traders, analistas, colaboradores o expositores provenientes de diferentes latitudes, jurisdicciones, culturas, escuelas de analisis y metodologias operativas. En consecuencia, el enfoque academico dentro de la plataforma puede ser plural, diverso y no necesariamente uniforme.</p><p>La existencia de multiples docentes o metodologias no implica contradiccion contractual, sino una caracteristica propia del enfoque descentralizado y educativo de UDEEBIT.</p></section>
+    <section class="section" id="s3"><h2>3. Solo fines educativos e informativos</h2><p>Todo el contenido, informacion, material, clases, mentorias, webinars, indicadores, software, publicaciones, analisis, comentarios, ejemplos, simulaciones, herramientas y demas recursos ofrecidos por UDEEBIT tienen fines estrictamente educativos e informativos.</p><p>Nada de lo contenido en UDEEBIT constituye ni debe interpretarse como: asesoria financiera personalizada; recomendacion individual de inversion; oferta publica de valores; invitacion vinculante a comprar o vender activos; promesa de beneficios; garantia de rentabilidad; consultoria legal, tributaria, contable o regulatoria; o representacion de resultados futuros ciertos.</p><p>Usted reconoce que cualquier decision de inversion, especulacion, compra, venta, cobertura, apalancamiento, gestion de riesgo o participacion en mercados financieros corresponde exclusivamente a su criterio, responsabilidad y evaluacion personal.</p></section>
+    <section class="section" id="s4"><h2>4. Descargo de responsabilidad sobre inversiones y trading</h2><p>Usted reconoce expresamente que los mercados financieros, la especulacion, el trading, la operativa con derivados, el uso de apalancamiento, la compraventa de activos, los productos financieros y cualquier actividad relacionada con inversiones conllevan riesgos significativos.</p><p>Entre dichos riesgos se encuentran, sin limitacion: perdida parcial o total del capital invertido; volatilidad extrema; deslizamiento; eventos macroeconomicos inesperados; cambios regulatorios; problemas de liquidez; riesgos operativos; riesgos tecnologicos; riesgos de contraparte; errores humanos; sobreapalancamiento; decisiones emocionales; resultados probabilisticos no favorables; e imposibilidad de replicar ejemplos educativos en condiciones reales de mercado.</p><p>Usted entiende y acepta que en el mundo de la inversion y de la especulacion no existen certezas absolutas, sino escenarios, analisis, probabilidades, gestion del riesgo y ejecucion bajo incertidumbre.</p><p>Por tanto, UDEEBIT no garantiza bajo ninguna circunstancia: ganancias; consistencia operativa; rentabilidad; independencia financiera; recuperacion de perdidas; resultados equivalentes a los de terceros; ni exito academico, financiero o profesional.</p><p>Toda referencia a ejemplos, configuraciones, analisis, estadisticas, casos, experiencias, resultados historicos o testimonios tiene fines meramente ilustrativos y educativos, y no constituye garantia de rendimiento futuro.</p></section>
+    <section class="section" id="s5"><h2>5. No asesoramiento financiero, legal, contable ni fiscal</h2><p>Ni UDEEBIT ni sus fundadores, directivos, instructores, docentes, mentores, empleados, representantes, colaboradores, afiliados, agentes o contratistas actuan, salvo indicacion expresa y documentada en contrario, como asesores de inversion registrados, corredores autorizados, asesores financieros personales, abogados, contadores o consultores fiscales de los usuarios.</p><p>En consecuencia: nada en la plataforma constituye asesoria financiera personalizada; nada sustituye el criterio de un profesional licenciado; y nada debe tomarse como recomendacion individual adaptada a su situacion patrimonial, fiscal, legal o financiera.</p><p>Usted debe consultar con sus propios asesores profesionales antes de realizar cualquier decision de inversion o acto con consecuencias legales, contables o tributarias.</p></section>
+    <section class="section" id="s6"><h2>6. Sin garantias</h2><p>UDEEBIT ofrece sus Servicios, contenidos, plataformas, materiales, herramientas e informacion "tal cual" y "segun disponibilidad".</p><p>En la maxima medida permitida por la ley aplicable, UDEEBIT rechaza toda garantia expresa o implicita, incluyendo, sin limitacion: garantias de comerciabilidad; adecuacion para un proposito particular; disponibilidad continua; ausencia de errores; resultados esperados; utilidad economica; compatibilidad con todos los dispositivos; y precision absoluta o actualizacion permanente del contenido.</p><p>Usted utiliza nuestros Servicios bajo su propio riesgo.</p></section>
+    <section class="section" id="s7"><h2>7. Responsabilidad personal del usuario</h2><p>Usted reconoce que: utiliza nuestros Servicios por decision propia; es el unico responsable de sus interpretaciones, decisiones, acciones y resultados; debe aplicar criterio propio, diligencia debida y gestion de riesgo; y ninguna herramienta educativa elimina la necesidad de responsabilidad individual.</p><p>UDEEBIT no sera responsable por perdidas economicas, decisiones de inversion, errores de ejecucion, interpretacion equivocada de contenidos, usos inadecuados de indicadores o implementacion deficiente de metodologias aprendidas en la academia.</p></section>
+    <section class="section" id="s8"><h2>8. Testimonios, ejemplos y experiencias de terceros</h2><p>UDEEBIT puede mostrar testimonios, opiniones, resenas, comentarios, capturas, experiencias, resultados subjetivos o narrativas de alumnos, miembros o colaboradores.</p><p>Tales referencias: se presentan con fines ilustrativos; reflejan experiencias individuales; no representan necesariamente la experiencia promedio; y no constituyen promesa, garantia o expectativa razonable de resultados iguales o similares.</p><p>Los resultados en trading e inversion dependen de multiples factores personales, tecnicos, emocionales, economicos y contextuales que estan fuera del control de UDEEBIT.</p></section>
+    <section class="section" id="s9"><h2>9. Propiedad intelectual</h2><p>Todo el contenido de UDEEBIT, incluyendo sin limitacion: nombre comercial; logotipos; identidad visual; diseno del sitio; textos; estructuras educativas; clases; grabaciones; videos; audios; PDFs; presentaciones; ebooks; plantillas; estrategias explicativas; dashboards; indicadores; scripts; software; herramientas; bases de datos; infografias; materiales de apoyo; comunidad; recursos descargables; contenidos premium; metodologias desarrolladas por la empresa; y sistemas de clasificacion o acompanamiento, es propiedad exclusiva de UDEEBIT o ha sido licenciada validamente a su favor, y esta protegida por las normas de propiedad intelectual, derechos de autor, marcas, secretos comerciales y demas leyes aplicables.</p></section>
+    <section class="section" id="s10"><h2>10. Licencia limitada de uso</h2><p>Cuando usted adquiere un curso, membresia, indicador, software, herramienta, recurso o cualquier otro producto de UDEEBIT, no adquiere la propiedad intelectual del mismo. Solo recibe una licencia limitada, revocable, personal, no exclusiva, no sublicenciable e intransferible para usar el contenido exclusivamente para su beneficio personal y conforme a los alcances autorizados por UDEEBIT.</p><p>Esta licencia no le autoriza a: compartir accesos con terceros; revender contenidos; redistribuir material; copiar clases o recursos para terceros; publicar material en otras plataformas; grabar, retransmitir o duplicar clases sin autorizacion; comercializar indicadores, software o herramientas de UDEEBIT; modificar, descompilar, replicar o explotar nuestros desarrollos; utilizar nuestro contenido para crear una academia competidora basada en nuestros materiales; subir materiales a Telegram, WhatsApp, Discord, YouTube, Google Drive, foros, membresias u otros repositorios; ni ceder o prestar su cuenta a terceros.</p></section>
+    <section class="section" id="s11"><h2>11. Prohibicion de difusion de material, indicadores y herramientas</h2><p>Queda expresamente prohibido difundir, compartir, intercambiar, filtrar, reenviar, copiar, grabar, vender, sublicenciar, prestar, publicar o explotar de cualquier modo el material de UDEEBIT, incluyendo, sin limitacion: clases en vivo o grabadas; mentorias; PDFs; ebooks; presentaciones; indicadores; scripts; configuraciones; plantillas; capturas internas; dashboards; archivos; comunidades privadas; software; herramientas; investigaciones; analisis internos; estructuras metodologicas; y cualquier otro recurso desarrollado, licenciado o distribuido por UDEEBIT.</p><p>Nuestros indicadores, herramientas y desarrollos son activos propios de UDEEBIT. Su uso no autorizado, copia, ingenieria inversa, comercializacion, redistribucion o difusion podra dar lugar a suspension inmediata de acceso, cancelacion de cuenta, acciones civiles, reclamaciones por danos y perjuicios y cualquier otra accion legal disponible.</p></section>
+    <section class="section" id="s12"><h2>12. Accesos, cuentas y credenciales</h2><p>Para acceder a determinadas funcionalidades, usted podra necesitar registrarse y crear una cuenta.</p><p>Usted es responsable de: mantener la confidencialidad de su usuario y contrasena; restringir el acceso a sus credenciales; toda actividad realizada desde su cuenta; y notificarnos inmediatamente cualquier uso no autorizado.</p><p>Nos reservamos el derecho de suspender o cancelar su cuenta, temporal o definitivamente, si detectamos: acceso compartido; fraude; suplantacion; actividad sospechosa; incumplimiento de estos Terminos; vulneracion de derechos de propiedad intelectual; o conducta perjudicial para la comunidad o para la empresa.</p></section>
+    <section class="section" id="s13"><h2>13. Conducta del usuario</h2><p>Usted se compromete a no utilizar UDEEBIT para: fines fraudulentos o ilicitos; infringir derechos de terceros; difundir spam o software malicioso; acosar, amenazar, insultar o perturbar a otros usuarios o docentes; interferir con la operatividad del sitio; vulnerar medidas de seguridad; extraer datos sin autorizacion; publicar contenido ofensivo, difamatorio, enganoso o ilegal; desprestigiar deliberadamente a la empresa mediante conductas abusivas; o usar la plataforma con fines de competencia desleal.</p><p>Nos reservamos el derecho de moderar, limitar, remover contenido o expulsar usuarios que incumplan estas reglas.</p></section>
+    <section class="section" id="s14"><h2>14. Servicios, productos y estructura comercial</h2><p>UDEEBIT puede ofrecer, entre otros: membresias; cursos; talleres; programas de formacion; mentorias; clases en vivo; clases grabadas; indicadores; licencias de software; herramientas de analisis; recursos descargables; acceso a comunidades; acompanamiento educativo; y contenido gratuito o promocional.</p><p>La estructura, alcance, duracion, precio, disponibilidad, condiciones de acceso y beneficios de cada producto o servicio seran los indicados en la pagina de venta, checkout, area de miembros o canal oficial correspondiente.</p><p>Nos reservamos el derecho de modificar, descontinuar, reemplazar o actualizar nuestros productos o servicios en cualquier momento.</p></section>
+    <section class="section" id="s15"><h2>15. Pagos y facturacion</h2><p>Al contratar cualquier producto o servicio de UDEEBIT, usted acepta pagar el precio total indicado al momento de la compra, asi como cualquier impuesto, cargo, comision bancaria o costo asociado aplicable.</p><p>Usted declara que: esta autorizado para usar el metodo de pago seleccionado; la informacion suministrada es correcta; comprende las condiciones del producto adquirido; y acepta los terminos de renovacion si se trata de una suscripcion.</p><p>Los pagos pueden ser procesados por terceros. UDEEBIT no controla directamente todas las politicas operativas de tales procesadores y no sera responsable por errores exclusivamente atribuibles a dichos terceros.</p></section>
+    <section class="section" id="s16"><h2>16. Suscripciones y renovaciones automaticas</h2><p>Algunos de nuestros Servicios pueden funcionar bajo modelo de suscripcion periodica. En tales casos, salvo que se indique lo contrario, usted acepta que su suscripcion pueda renovarse automaticamente por periodos sucesivos y bajo la tarifa aplicable vigente, hasta que usted la cancele conforme al procedimiento habilitado.</p><p>Es responsabilidad del usuario revisar la fecha de renovacion, administrar su suscripcion y cancelar oportunamente si no desea continuar.</p><p>La cancelacion evita renovaciones futuras, pero no implica necesariamente reembolso de pagos ya efectuados, salvo disposicion expresa en sentido contrario.</p></section>
+    <section class="section" id="s17"><h2>17. Politica de cancelacion y reembolso</h2><p>Debido a la naturaleza digital, inmediata, educativa e intelectual de nuestros productos y Servicios, y salvo que en una pagina de venta especifica se establezca una politica distinta, las compras realizadas en UDEEBIT son en principio finales y no reembolsables.</p><p>Esto se justifica, entre otras razones, por: acceso inmediato a materiales digitales; posibilidad de consumo parcial o total del contenido; acceso a herramientas propietarias; activacion de licencias, indicadores o recursos; y riesgo de apropiacion indebida del conocimiento o del material.</p><p>No obstante, UDEEBIT podra, a su sola discrecion, evaluar solicitudes de reembolso cuando existan circunstancias extraordinarias, errores duplicados de cobro o disposiciones especificas expresamente anunciadas en la oferta del producto.</p><p>Cuando exista una ventana de garantia o reembolso informada expresamente en una pagina de venta, dicha politica sera la unica aplicable y debera cumplirse estrictamente en sus requisitos, plazos y condiciones.</p><p>Las membresias, accesos a comunidades, indicadores activados, softwares entregados y productos digitales consumidos total o parcialmente podran no ser elegibles para reembolso.</p></section>
+    <section class="section" id="s18"><h2>18. Disponibilidad tecnologica</h2><p>No garantizamos que la plataforma, el sitio, los grupos, los webinars, las clases o las herramientas esten siempre disponibles de manera ininterrumpida.</p><p>Pueden producirse interrupciones por: mantenimiento; actualizaciones; fallas del servidor; incidencias del proveedor; ataques informaticos; saturacion; fuerza mayor; problemas de conectividad; y fallas de terceros.</p><p>En la maxima medida permitida por la ley, UDEEBIT no sera responsable por perdidas derivadas de tales interrupciones, salvo cuando la ley disponga expresamente lo contrario.</p></section>
+    <section class="section" id="s19"><h2>19. Enlaces y servicios de terceros</h2><p>Nuestros Servicios pueden integrar o enlazar herramientas, plataformas, brokers, pasarelas, softwares o servicios de terceros. Tales integraciones no implican garantia, control ni responsabilidad de UDEEBIT sobre dichos terceros.</p><p>Cada usuario es responsable de revisar y aceptar los terminos, riesgos y politicas de cualquier tercero con el que interactue.</p><p>UDEEBIT no sera responsable por perdidas, danos, reclamaciones o controversias surgidas entre usted y terceros externos.</p></section>
+    <section class="section" id="s20"><h2>20. Privacidad y tratamiento de datos</h2><p>El tratamiento de datos personales se rige por nuestra Politica de Privacidad, que forma parte integral de estos Terminos y Condiciones.</p><p>Al utilizar nuestros Servicios, usted declara haber leido y aceptado dicha Politica.</p></section>
+    <section class="section" id="s21"><h2>21. Suspension y terminacion</h2><p>Nos reservamos el derecho de restringir, suspender o terminar su acceso a cualquiera de nuestros Servicios, con o sin aviso previo, si consideramos que: ha incumplido estos Terminos; ha hecho un uso indebido de la plataforma; ha compartido material o accesos; ha afectado la seguridad del sistema; ha vulnerado derechos de propiedad intelectual; ha realizado fraude, chargeback abusivo o conductas perjudiciales; o su permanencia resulta lesiva para UDEEBIT, sus docentes, usuarios o aliados.</p><p>La suspension o terminacion no extingue aquellas obligaciones que por su naturaleza deban subsistir, incluyendo propiedad intelectual, restricciones de uso, limitacion de responsabilidad, indemnizacion y pago de cantidades adeudadas.</p></section>
+    <section class="section" id="s22"><h2>22. Indemnizacion</h2><p>Usted acepta defender, indemnizar y mantener indemne a UDEEBIT, sus directivos, socios, docentes, representantes, afiliados, empleados, contratistas y colaboradores frente a cualquier reclamacion, perdida, dano, gasto, responsabilidad o costo, incluyendo honorarios legales razonables, derivados de: su uso de los Servicios; su incumplimiento de estos Terminos; violacion de derechos de terceros; difusion no autorizada de material; uso indebido de indicadores, software o herramientas; actividades fraudulentas o ilicitas; y cualquier acto realizado desde su cuenta.</p></section>
+    <section class="section" id="s23"><h2>23. Limitacion de responsabilidad</h2><p>En la maxima medida permitida por la ley aplicable, UDEEBIT no sera responsable por danos directos, indirectos, incidentales, especiales, ejemplares, punitivos o consecuenciales derivados del uso o imposibilidad de uso de nuestros Servicios.</p><p>Esto incluye, sin limitacion: perdidas financieras; perdidas de capital; lucro cesante; perdida de datos; perdida de oportunidades; fallos tecnologicos; indisponibilidad de la plataforma; resultados operativos insatisfactorios; decisiones tomadas con base en el contenido; incompatibilidad con sus expectativas; actos de terceros; y filtraciones no imputables directamente a dolo o culpa grave legalmente comprobada de UDEEBIT.</p><p>En caso de que, pese a lo anterior, se determinara responsabilidad a cargo de UDEEBIT, dicha responsabilidad total acumulada no excedera, en la maxima medida permitida por la ley, el monto efectivamente pagado por usted a UDEEBIT por el producto o servicio especifico que dio origen al reclamo durante los ultimos [3/6/12] meses, segun convenga definirlo.</p></section>
+    <section class="section" id="s24"><h2>24. Chargebacks y disputas de pago abusivas</h2><p>UDEEBIT no tolera devoluciones de cargo fraudulentas o abusivas. Si usted inicia un chargeback o amenaza con iniciarlo de forma improcedente respecto de una compra legitima, nos reservamos el derecho de: suspender inmediatamente su acceso; cancelar su cuenta; conservar evidencia digital del acceso y consumo; responder formalmente al procesador de pagos; reclamar montos adeudados; y adoptar las acciones legales o administrativas que correspondan.</p></section>
+    <section class="section" id="s25"><h2>25. Comunicaciones y uso de imagen dentro de entornos educativos</h2><p>UDEEBIT puede grabar clases en vivo, webinars, sesiones grupales o espacios comunitarios con fines de soporte, control de calidad, reuso academico interno, mejora del servicio, seguridad, documentacion o disponibilidad posterior para alumnos autorizados.</p><p>Al participar en espacios en vivo, usted acepta que su nombre de usuario, voz, imagen, intervenciones, preguntas o mensajes visibles puedan quedar registrados en tales grabaciones, salvo que tecnicamente se establezca otra opcion.</p><p>UDEEBIT no utilizara razonablemente tales elementos para fines promocionales externos invasivos de manera arbitraria, pero se reserva el derecho de usar extractos, capturas o materiales derivados en la medida necesaria para operar, documentar, mejorar o promocionar sus Servicios, salvo que la ley exija consentimiento adicional especifico.</p></section>
+    <section class="section" id="s26"><h2>26. Modificaciones de los terminos</h2><p>UDEEBIT podra modificar, actualizar o reemplazar en cualquier momento estos Terminos y Condiciones. La version vigente sera la publicada en nuestros canales oficiales.</p><p>Es responsabilidad del usuario revisar periodicamente estos Terminos. El uso continuado de nuestros Servicios despues de la publicacion de modificaciones constituira aceptacion de la version actualizada.</p></section>
+    <section class="section" id="s27"><h2>27. Ley aplicable y resolucion de controversias</h2><p>Estos Terminos y Condiciones se regiran e interpretaran conforme a las leyes de [indicar pais o jurisdiccion aplicable], sin perjuicio de las normas imperativas de proteccion al consumidor que pudieran resultar aplicables.</p><p>Toda controversia que surja en relacion con estos Terminos, con nuestros Servicios o con la relacion entre UDEEBIT y el usuario debera intentarse resolver inicialmente de buena fe mediante comunicacion directa entre las partes.</p><p>Si no fuera posible alcanzar una solucion amistosa, la controversia sera sometida a los tribunales competentes de [indicar ciudad y pais], salvo que UDEEBIT establezca validamente una clausula especifica de mediacion o arbitraje en una version definitiva revisada por asesoria legal local.</p></section>
+    <section class="section" id="s28"><h2>28. Divisibilidad</h2><p>Si cualquier disposicion de estos Terminos se considerara invalida, ilegal o inaplicable, dicha circunstancia no afectara la validez de las demas disposiciones, que continuaran en pleno vigor y efecto.</p></section>
+    <section class="section" id="s29"><h2>29. Acuerdo completo</h2><p>Estos Terminos y Condiciones, junto con la Politica de Privacidad y cualquier politica especifica publicada por UDEEBIT para determinados productos o servicios, constituyen el acuerdo completo entre usted y UDEEBIT respecto del uso de nuestros Servicios y reemplazan cualquier comunicacion, negociacion o entendimiento previo sobre la misma materia.</p></section>
+    <section class="section" id="s30"><h2>30. Contacto</h2><p>Si tiene preguntas sobre estos Terminos y Condiciones, puede contactarnos a traves de los medios oficiales de UDEEBIT:</p><p>Correo electronico: admin@udeebit.com</p><p>Sitio web: [colocar URL oficial]</p><p>Nombre comercial / empresa: UDEEBIT</p></section>
+  </article>
+</main>
+
+<!-- FOOTER -->
+<!-- FOOTER -->
+<footer class="u-footer">
+  <div class="u-footer-inner">
+    <div class="u-footer-grid">
+      <div>
+        <a class="u-footer-brand-logo" href="udeebit-landing-final.html" aria-label="Udeebit inicio">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 56" height="32" style="display:block;">
+            <text x="4" y="44" font-family="'Sora','Poppins','Arial Black',sans-serif" font-weight="800" font-size="46" fill="#ffffff" letter-spacing="-0.5">Udee</text>
+            <text x="132" y="44" font-family="'Sora','Poppins','Arial Black',sans-serif" font-weight="800" font-size="46" fill="#A78BFA" letter-spacing="-0.5">bit</text>
+          </svg>
+        </a>
+        <p class="u-footer-desc">UDEEBIT ofrece formación en trading, inversiones y mercados financieros a través de programas educativos diseñados para desarrollar conocimiento y criterio en el mundo de las finanzas.</p>
+        <div class="u-footer-socials">
+          <a class="u-footer-social" href="https://www.youtube.com/@Udeebit" title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a class="u-footer-social" href="https://www.tiktok.com/@udeebit" title="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></a>
+          <a class="u-footer-social" href="https://www.instagram.com/udeebiit?igsh=bnVxM25vMG03enpo&utm_source=qr" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a class="u-footer-social" href="https://www.facebook.com/share/1AtNDkmcGt/" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a class="u-footer-social" href="https://x.com/Udeebit" title="X / Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="u-footer-col-title">Formaciones</div>
+        <a class="u-footer-link" href="udeebit-curso-detalle.html">Trading Core: Fundamentos y Práctica</a>
+        <a class="u-footer-link" href="udeebit-curso-cripto.html">Cripto y Blockchain</a>
+        <a class="u-footer-link" href="udeebit-curso-inversiones.html">Inversiones y Estrategias de Patrimonio</a>
+        <a class="u-footer-link" href="udeebit-curso-algoritmico.html">Inversión Algorítmica con MetaTrader</a>
+      </div>
+      <div>
+        <div class="u-footer-col-title">Compañía</div>
+        <a class="u-footer-link" href="udeebit-sobre-nosotros.html">Sobre nosotros</a>
+        <a class="u-footer-link" href="udeebit-blog.html">Blog</a>
+        <a class="u-footer-link" href="udeebit-contacto.html">Soporte</a>
+        <a class="u-footer-link" href="udeebit-terminos-condiciones.html">Términos y Condiciones</a>
+        <a class="u-footer-link" href="udeebit-politica-privacidad.html">Política de Privacidad</a>
+      </div>
+      <div>
+        <div class="u-footer-col-title">Newsletter</div>
+        <p style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:14px;line-height:1.6">Señales de trading y análisis de mercado directo a tu correo.</p>
+        <input type="email" placeholder="Tu correo electrónico" style="width:100%;padding:11px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:#fff;font-size:13px;outline:none;margin-bottom:8px;font-family:inherit">
+        <button style="width:100%;background:#7C3AED;color:#fff;border:none;border-radius:8px;padding:11px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Enviar →</button>
+      </div>
+    </div>
+    <div class="u-footer-bottom">
+      <span>© 2026 Udeebit. Todos los derechos reservados.</span>
+      <div class="u-footer-badges">
+        <span class="u-footer-badge">🔒 SSL Seguro</span>
+        <span class="u-footer-badge">✅ Certificado</span>
+        <a class="u-footer-link" style="margin:0" href="udeebit-politica-privacidad.html">Privacidad</a>
+        <a class="u-footer-link" style="margin:0" href="udeebit-terminos-condiciones.html">Términos</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

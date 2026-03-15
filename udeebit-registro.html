@@ -1,0 +1,801 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Udeebit - Regístrate</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --p:           #7c5cfc;
+    --purple:      #7c5cfc;
+    --purple-lite: #9b7ffe;
+    --purple-dark: #5b3fd4;
+    --accent:      #00e5ff;
+    --green:       #00c896;
+    --red:         #ff4d6d;
+    --text-main:   #1a1235;
+    --text-muted:  #6e7299;
+    --text-dim:    #9396b5;
+    --border:      rgba(124,92,252,.2);
+    --radius:      16px;
+    --radius-sm:   10px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f0eefa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  /* -- BACKGROUND ----------------------------------- */
+  .page-bg {
+    position: fixed; inset: 0; z-index: 0;
+    overflow: hidden;
+  }
+
+  /* Left side: candlestick chart SVG atmosphere */
+  .bg-left {
+    position: absolute; left: 0; top: 0;
+    width: 42%; height: 100%;
+    background: linear-gradient(135deg, #e8e2f8 0%, #d4cbf5 40%, #c8bff2 100%);
+  }
+  .bg-right {
+    position: absolute; right: 0; top: 0;
+    width: 58%; height: 100%;
+    overflow: hidden;
+  }
+  .bg-right img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    display: block;
+  }
+  /* Gradient overlay: left-to-right blend + dark tint for depth */
+  .bg-right::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(
+      90deg,
+      #f0eefa 0%,
+      rgba(240,238,250,.82) 12%,
+      rgba(45,26,110,.3) 40%,
+      rgba(15,10,40,.5) 70%,
+      rgba(10,6,30,.68) 100%
+    );
+  }
+  /* Top/bottom vignette */
+  .bg-right::after {
+    content: '';
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(180deg, rgba(0,0,0,.22) 0%, transparent 28%, transparent 68%, rgba(0,0,0,.3) 100%);
+  }
+  /* Center blend */
+  .bg-center {
+    position: absolute; left: 30%; top: 0;
+    width: 40%; height: 100%;
+    background: linear-gradient(90deg, transparent 0%, #f0eefa 20%, #f0eefa 80%, transparent 100%);
+  }
+
+  /* Floating chart lines on left */
+  .chart-lines {
+    position: absolute; left: 0; top: 0;
+    width: 42%; height: 100%;
+    opacity: .55;
+  }
+
+  /* Tech device mockup on right - replaced by photo */
+  .tech-scene { display: none; }
+
+  /* Tech scene devices replaced by real photo (see .bg-right) */
+  .tech-scene, .device-wrapper, .laptop-wrap, .laptop-screen,
+  .laptop-base, .laptop-foot, .mobile-wrap, .mobile-screen,
+  .coins-stack, .mob-chart, .mob-stats, .screen-chart { display: none; }
+
+  /* Floating ticker cards on left */
+  .ticker-cards {
+    position: absolute; left: 28px;
+    display: flex; flex-direction: column; gap: 10px;
+    z-index: 5;
+    top: 50%; transform: translateY(-50%);
+  }
+  .ticker-card {
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(124,92,252,.15);
+    border-radius: 10px;
+    padding: 8px 14px;
+    display: flex; align-items: center; gap: 10px;
+    min-width: 180px;
+    box-shadow: 0 4px 20px rgba(124,92,252,.1);
+    animation: floatCard 3s ease-in-out infinite;
+  }
+  .ticker-card:nth-child(2) { animation-delay: .6s; }
+  .ticker-card:nth-child(3) { animation-delay: 1.2s; }
+  @keyframes floatCard {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  .ticker-name { font-size: .82rem; font-weight: 700; color: var(--text-main); min-width: 60px; }
+  .ticker-pct { font-size: .78rem; font-weight: 600; color: var(--green); }
+  .ticker-sparkline { flex: 1; height: 24px; }
+  .ticker-sparkline svg { width: 100%; height: 100%; }
+
+  /* Left chart atmosphere */
+  .left-chart-svg {
+    position: absolute; left: 0; top: 0;
+    width: 42%; height: 100%;
+    opacity: .3;
+  }
+
+  /* -- TOPNAV --------------------------------------- */
+  .topnav {
+    position: relative; z-index: 10;
+    display: flex; align-items: center;
+    padding: 0 3rem;
+    height: 64px;
+    background: rgba(255,255,255,.72);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(124,92,252,.12);
+  }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800; font-size: 1.2rem;
+    color: var(--text-main); text-decoration: none;
+  }
+  .logo-img { height: 34px; width: auto; display: block; }
+  .logo-mobile { display: none; }
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, #7c5cfc, #00e5ff);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; font-weight: 900; color: #fff;
+  }
+  .nav-links { display: flex; gap: 0; margin-left: 2.5rem; }
+  .nav-links a {
+    font-size: .88rem; font-weight: 500; color: #555;
+    text-decoration: none; padding: 0 1.1rem; height: 64px;
+    display: flex; align-items: center; border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s;
+  }
+  .nav-links a.active { color: var(--text-main); border-bottom-color: var(--purple); }
+  .nav-links a:hover { color: var(--text-main); }
+  .nav-right { margin-left: auto; }
+  .login-pill {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.8);
+    border: 1px solid rgba(124,92,252,.25);
+    border-radius: 30px; padding: 8px 18px;
+    font-size: .84rem; color: #666; cursor: pointer;
+    transition: background .2s;
+  }
+  .login-pill:hover { background: #fff; }
+  .login-pill strong { color: var(--purple); font-weight: 600; }
+
+  /* -- MAIN CONTENT ------------------------------- */
+  .page-body {
+    position: relative; z-index: 5;
+    flex: 1;
+    display: flex; align-items: flex-start; justify-content: center;
+    padding: 2rem 1rem 5rem;
+  }
+
+  /* -- REGISTER CARD ------------------------------- */
+  .register-card {
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(124,92,252,.15);
+    border-radius: 24px;
+    padding: 2.25rem 2.5rem;
+    width: 100%; max-width: 480px;
+    box-shadow:
+      0 32px 80px rgba(124,92,252,.15),
+      0 8px 32px rgba(0,0,0,.08);
+    animation: cardIn .55s cubic-bezier(.22,.68,0,1.2) both;
+  }
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(24px) scale(.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .card-head { text-align: center; margin-bottom: 1.75rem; }
+  .card-head h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.65rem; font-weight: 800; color: var(--text-main);
+    margin-bottom: .5rem;
+  }
+  .card-head p { font-size: .875rem; color: var(--text-muted); line-height: 1.5; }
+
+  /* Form */
+  .form-group { margin-bottom: 1.1rem; }
+  .form-label {
+    display: block; font-size: .82rem; font-weight: 600;
+    color: #3a3560; margin-bottom: .45rem;
+  }
+  .form-label .opt {
+    font-weight: 400; color: var(--text-muted); font-size: .77rem; margin-left: 4px;
+  }
+  .input-wrap {
+    display: flex; align-items: center;
+    border: 1.5px solid #e0dbf5;
+    border-radius: var(--radius-sm);
+    background: #faf9ff;
+    transition: border-color .2s, box-shadow .2s;
+    overflow: hidden;
+  }
+  .input-wrap:focus-within {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgba(124,92,252,.12);
+    background: #fff;
+  }
+  .input-icon {
+    padding: 0 12px;
+    color: var(--text-dim);
+    display: flex; align-items: center; flex-shrink: 0;
+    font-size: .95rem;
+  }
+  .input-wrap input {
+    flex: 1; border: none; background: none; outline: none;
+    padding: 11px 12px 11px 0;
+    font-size: .875rem; color: var(--text-main);
+    font-family: 'DM Sans', sans-serif;
+  }
+  .input-wrap input::placeholder { color: #b8b5cc; }
+  .pw-toggle {
+    padding: 0 12px; cursor: pointer; color: var(--text-dim);
+    font-size: .85rem; transition: color .2s;
+  }
+  .pw-toggle:hover { color: var(--purple); }
+
+  /* Phone row - country code + number */
+  .phone-row {
+    display: flex; gap: .65rem;
+  }
+  .country-select-wrap {
+    display: flex; align-items: center;
+    border: 1.5px solid #e0dbf5;
+    border-radius: var(--radius-sm);
+    background: #faf9ff;
+    padding: 0 10px;
+    gap: 6px; cursor: pointer;
+    transition: border-color .2s;
+    flex-shrink: 0;
+    min-width: 110px;
+  }
+  .country-select-wrap:focus-within {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgba(124,92,252,.12);
+  }
+  .flag { font-size: 1.1rem; }
+  .country-code-select {
+    border: none; background: none; outline: none;
+    font-size: .875rem; color: var(--text-main);
+    font-family: 'DM Sans', sans-serif; font-weight: 500;
+    cursor: pointer; padding: 11px 0;
+    appearance: none; -webkit-appearance: none;
+    min-width: 64px;
+  }
+  .country-chevron { color: var(--text-muted); font-size: .7rem; pointer-events: none; }
+
+  .phone-input-wrap { flex: 1; }
+
+  /* Terms */
+  .terms-row {
+    display: flex; gap: 10px; align-items: flex-start;
+    margin: 1.1rem 0 1.35rem;
+  }
+  .terms-check {
+    width: 18px; height: 18px; flex-shrink: 0;
+    accent-color: var(--purple); cursor: pointer;
+    margin-top: 1px;
+  }
+  .terms-text { font-size: .8rem; color: var(--text-muted); line-height: 1.5; }
+  .terms-text a { color: var(--purple); font-weight: 600; text-decoration: none; }
+  .terms-text a:hover { text-decoration: underline; }
+
+  /* CTA Button */
+  .cta-btn {
+    width: 100%; padding: 13px;
+    background: linear-gradient(90deg, var(--purple) 0%, var(--purple-dark) 100%);
+    border: none; border-radius: var(--radius-sm);
+    color: #fff; font-size: .95rem; font-weight: 700;
+    cursor: pointer; font-family: 'Outfit', sans-serif;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    transition: opacity .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 6px 24px rgba(124,92,252,.4);
+    letter-spacing: .02em;
+  }
+  .cta-btn:hover { opacity: .93; transform: translateY(-1px); box-shadow: 0 10px 32px rgba(124,92,252,.5); }
+  .cta-btn:active { transform: translateY(0); }
+
+  /* Divider */
+  .or-divider {
+    display: flex; align-items: center; gap: 12px;
+    margin: 1rem 0;
+  }
+  .or-divider::before, .or-divider::after {
+    content: ''; flex: 1; height: 1px; background: #e8e4f5;
+  }
+  .or-divider span { font-size: .8rem; color: var(--text-muted); white-space: nowrap; }
+
+  /* Social Buttons */
+  .social-row { display: flex; gap: .75rem; justify-content: center; }
+  .social-btn {
+    flex: 0 1 240px; width: 100%; padding: 10px;
+    background: #fff; border: 1.5px solid #e0dbf5;
+    border-radius: var(--radius-sm);
+    font-size: .85rem; font-weight: 600; color: var(--text-main);
+    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+    transition: border-color .2s, box-shadow .2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .social-btn:hover { border-color: rgba(124,92,252,.4); box-shadow: 0 2px 12px rgba(124,92,252,.1); }
+  .google-g {
+    width: 18px; height: 18px;
+    background: conic-gradient(#4285F4 0deg 90deg, #EA4335 90deg 180deg, #FBBC05 180deg 270deg, #34A853 270deg 360deg);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .google-g::after { content: ''; width: 8px; height: 8px; background: #fff; border-radius: 50%; }
+
+  /* Security badge */
+  .security-badge {
+    display: flex; align-items: center; justify-content: center; gap: 7px;
+    margin-top: 1.1rem;
+    font-size: .77rem; color: var(--text-muted);
+  }
+  .security-badge svg { color: var(--purple); }
+
+  /* -- FOOTER --------------------------------------- */
+  footer {
+    position: relative; z-index: 10;
+    background: rgba(255,255,255,.72);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(124,92,252,.1);
+    padding: 1rem 3rem;
+    display: flex; align-items: center; gap: 2rem;
+  }
+  .footer-logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800; font-size: 1rem; color: var(--text-main);
+  }
+  .footer-copy { font-size: .78rem; color: var(--text-muted); }
+  .footer-right { margin-left: auto; display: flex; align-items: center; gap: 1.5rem; }
+  .payment-badges { display: flex; align-items: center; gap: .85rem; }
+  .badge-visa {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800; font-size: .9rem; color: #1a1f71;
+    background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 3px 8px;
+  }
+  .badge-mc { font-size: 1.1rem; }
+  .badge-paypal { font-size: .8rem; font-weight: 700; color: #003087; }
+  .badge-ssl {
+    display: flex; align-items: center; gap: 4px;
+    font-size: .75rem; font-weight: 600; color: var(--green);
+    background: rgba(0,200,150,.1); border-radius: 20px; padding: 3px 10px;
+  }
+  .footer-links { display: flex; gap: 1.2rem; }
+  .footer-links a { font-size: .78rem; color: var(--text-muted); text-decoration: none; }
+  .footer-links a:hover { color: var(--purple); }
+
+  /* Responsive tweak */
+  @media (max-width: 680px) {
+    .register-card { padding: 1.75rem 1.25rem; }
+    footer { flex-wrap: wrap; padding: 1rem 1.25rem; gap: 1rem; }
+    .footer-right { margin-left: 0; flex-wrap: wrap; }
+    .ticker-cards { display: none; }
+    .topnav { padding: 0 1.25rem; }
+    .logo-desktop, .footer-logo-desktop { display: none; }
+    .logo-mobile, .footer-logo-mobile { display: block; }
+    .logo-mobile { height: 30px; }
+    .footer-logo-mobile { height: 30px; }
+  }
+/* Landing footer shared across all windows */
+.footer {
+  background:#0F0E1A; color:rgba(255,255,255,.7);
+  padding:56px 40px 28px;
+}
+.footer-inner { max-width:1200px; margin:0 auto; }
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px; }
+.footer-brand-logo { display:flex; align-items:center; gap:10px; margin-bottom:16px; text-decoration:none; width:fit-content; }
+.footer-logo-img { height: 34px; width: auto; display: block; }
+.footer-logo-mobile { display: none; }
+@media (max-width: 680px) {
+  .logo-desktop, .footer-logo-desktop { display: none; }
+  .logo-mobile, .footer-logo-mobile { display: block; }
+  .logo-mobile { height: 30px; }
+  .footer-logo-mobile { height: 30px; }
+}
+.footer-brand-logo .logo-icon {
+  width:36px; height:36px; background:linear-gradient(135deg,#7C3AED,#4F46E5);
+  border-radius:10px; display:flex; align-items:center; justify-content:center;
+  font-family:'Sora',sans-serif; font-weight:800; color:#fff; font-size:18px;
+}
+.footer-brand-logo .logo-txt { font-family:'Sora',sans-serif; font-weight:800; font-size:18px; color:#fff; }
+.footer-desc { font-size:14px; line-height:1.7; margin-bottom:24px; }
+.footer-socials { display:flex; gap:10px; }
+.footer-social {
+  width:36px; height:36px; border-radius:8px; background:rgba(255,255,255,.08);
+  display:flex; align-items:center; justify-content:center; font-size:16px;
+  cursor:pointer; transition:.2s;
+}
+.footer-social:hover { background:var(--p); }
+.footer-col-title { font-family:'Sora',sans-serif; font-size:14px; font-weight:700; color:#fff; margin-bottom:18px; }
+.footer-link { display:block; font-size:13px; color:rgba(255,255,255,.55); margin-bottom:10px; cursor:pointer; transition:.2s; }
+.footer-link:hover { color:#fff; }
+.footer-bottom {
+  border-top:1px solid rgba(255,255,255,.08); padding-top:24px;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  font-size:12px; color:rgba(255,255,255,.35);
+}
+.footer-badges { display:flex; gap:12px; align-items:center; }
+.footer-badge {
+  background:rgba(255,255,255,.06); border-radius:6px;
+  padding:5px 10px; font-size:11px; color:rgba(255,255,255,.4);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+/* ── SHARED NAV & FOOTER ── */
+.topbar{background:linear-gradient(90deg,#4C1D95,#7C3AED,#4F46E5);color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:500;position:relative;z-index:300;}
+.topbar strong{font-weight:700;}.topbar a{color:#FDE68A;text-decoration:underline;font-weight:600;margin-left:8px;}
+.u-navbar{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);border-bottom:1px solid #E5E7EB;display:flex;align-items:center;padding:0 40px;height:64px;box-shadow:0 2px 16px rgba(0,0,0,.06);}
+.u-nav-logo{display:flex;align-items:center;margin-right:48px;text-decoration:none;}
+.u-nav-links{display:flex;flex:1;}
+.u-nav-link{padding:0 18px;height:64px;display:flex;align-items:center;font-size:14px;font-weight:500;color:#6B7280;transition:.2s;text-decoration:none;font-family:'Instrument Sans','DM Sans',sans-serif;}
+.u-nav-link:hover,.u-nav-link.active{color:#7C3AED;}
+.u-nav-right{display:flex;align-items:center;gap:12px;margin-left:auto;}
+.u-btn{display:inline-flex;align-items:center;border-radius:10px;font-weight:600;cursor:pointer;transition:.2s;border:none;font-family:'Instrument Sans','DM Sans',sans-serif;font-size:14px;padding:10px 22px;text-decoration:none;}
+.u-btn-outline{background:transparent;border:1.5px solid #7C3AED;color:#7C3AED;}.u-btn-outline:hover{background:#EDE9FE;}
+.u-btn-primary{background:#7C3AED;color:#fff;box-shadow:0 4px 14px rgba(124,58,237,.35);}.u-btn-primary:hover{background:#6D28D9;transform:translateY(-1px);}
+.u-footer{background:#0F0E1A;color:rgba(255,255,255,.7);padding:56px 40px 28px;}
+.u-footer-inner{max-width:1200px;margin:0 auto;}
+.u-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+.u-footer-brand-logo{display:flex;align-items:center;margin-bottom:16px;text-decoration:none;}
+.u-footer-desc{font-size:12px;line-height:1.7;margin-bottom:32px;text-align:justify;color:rgba(255,255,255,.55);}
+.u-footer-socials{display:flex;gap:10px;}
+.u-footer-social{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;color:rgba(255,255,255,.7);text-decoration:none;}
+.u-footer-social:hover{background:#7C3AED;}
+.u-footer-col-title{font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:18px;}
+.u-footer-link{display:block;font-size:13px;color:rgba(255,255,255,.55);margin-bottom:10px;text-decoration:none;transition:.2s;cursor:pointer;}
+.u-footer-link:hover{color:#fff;}
+.u-footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.35);}
+.u-footer-badges{display:flex;gap:12px;align-items:center;}
+.u-footer-badge{background:rgba(255,255,255,.06);border-radius:6px;padding:5px 10px;font-size:11px;color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.08);}
+
+</style>
+</head>
+<body>
+<!-- TOPBAR -->
+<div class="topbar">🔥 <strong>Oferta especial:</strong> Formaciones gratuitas por tiempo limitado. ¡No pierdas tu acceso! <a href="udeebit-landing-final.html">Reclamar ahora →</a></div>
+
+<!-- ------ PAGE BACKGROUND ------ -->
+<div class="page-bg">
+  <!-- Left pastel zone -->
+  <div class="bg-left"></div>
+  <!-- Right: real photo with gradient overlay -->
+  <div class="bg-right">
+    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=1000&fit=crop&q=85" alt="Análisis de mercados financieros">
+  </div>
+  <!-- Center blend -->
+  <div class="bg-center"></div>
+
+  <!-- Right panel: real photo with gradient overlay (see .bg-right CSS) -->
+  <svg class="left-chart-svg" viewBox="0 0 500 900" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Candle wicks & bodies -->
+    <g stroke="#7c5cfc" stroke-width="1.5" opacity=".6">
+      <line x1="60" y1="200" x2="60" y2="620"/>
+      <rect x="48" y="300" width="24" height="180" fill="#7c5cfc" rx="2"/>
+      <line x1="120" y1="150" x2="120" y2="580"/>
+      <rect x="108" y="200" width="24" height="220" fill="rgba(124,92,252,.4)" rx="2" stroke="none"/>
+      <line x1="180" y1="280" x2="180" y2="650"/>
+      <rect x="168" y="350" width="24" height="160" fill="#7c5cfc" rx="2"/>
+      <line x1="240" y1="220" x2="240" y2="600"/>
+      <rect x="228" y="260" width="24" height="200" fill="rgba(124,92,252,.5)" rx="2"/>
+      <line x1="300" y1="180" x2="300" y2="560"/>
+      <rect x="288" y="230" width="24" height="180" fill="#7c5cfc" rx="2"/>
+      <line x1="360" y1="250" x2="360" y2="620"/>
+      <rect x="348" y="310" width="24" height="150" fill="rgba(124,92,252,.4)" rx="2" stroke="none"/>
+    </g>
+    <!-- Green candles -->
+    <g stroke="#00c896" stroke-width="1.5" opacity=".5">
+      <line x1="90" y1="300" x2="90" y2="700"/>
+      <rect x="78" y="400" width="24" height="180" fill="#00c896" rx="2"/>
+      <line x1="150" y1="200" x2="150" y2="580"/>
+      <rect x="138" y="270" width="24" height="200" fill="rgba(0,200,150,.4)" rx="2" stroke="none"/>
+      <line x1="210" y1="350" x2="210" y2="720"/>
+      <rect x="198" y="450" width="24" height="160" fill="#00c896" rx="2"/>
+      <line x1="270" y1="280" x2="270" y2="680"/>
+      <rect x="258" y="380" width="24" height="180" fill="rgba(0,200,150,.5)" rx="2" stroke="none"/>
+      <line x1="330" y1="230" x2="330" y2="620"/>
+      <rect x="318" y="310" width="24" height="200" fill="#00c896" rx="2"/>
+      <line x1="390" y1="300" x2="390" y2="700"/>
+      <rect x="378" y="400" width="24" height="180" fill="rgba(0,200,150,.4)" rx="2" stroke="none"/>
+    </g>
+    <!-- Moving average lines -->
+    <path d="M0,480 C50,460 100,440 150,420 C200,400 250,380 300,350 C350,320 400,290 500,260" stroke="#7c5cfc" stroke-width="2" opacity=".4" stroke-dasharray="6 3"/>
+    <path d="M0,550 C50,530 100,510 160,490 C220,470 280,450 340,420 C400,390 450,370 500,350" stroke="#00c896" stroke-width="1.5" opacity=".35" stroke-dasharray="4 4"/>
+    <!-- Grid lines -->
+    <line x1="0" y1="200" x2="500" y2="200" stroke="#7c5cfc" stroke-width=".5" opacity=".2"/>
+    <line x1="0" y1="400" x2="500" y2="400" stroke="#7c5cfc" stroke-width=".5" opacity=".2"/>
+    <line x1="0" y1="600" x2="500" y2="600" stroke="#7c5cfc" stroke-width=".5" opacity=".2"/>
+    <line x1="0" y1="800" x2="500" y2="800" stroke="#7c5cfc" stroke-width=".5" opacity=".2"/>
+  </svg>
+
+  <!-- Floating ticker cards -->
+  
+</div>
+
+
+<!-- NAVBAR -->
+<nav class="u-navbar">
+  <a class="u-nav-logo" href="udeebit-landing-final.html" aria-label="Udeebit inicio">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 56" height="36" style="display:block;">
+      <text x="4" y="44" font-family="'Sora','Poppins','Arial Black',sans-serif" font-weight="800" font-size="46" fill="#4E0C82" letter-spacing="-0.5">Udee</text>
+      <text x="132" y="44" font-family="'Sora','Poppins','Arial Black',sans-serif" font-weight="800" font-size="46" fill="#1a1a1a" letter-spacing="-0.5">bit</text>
+    </svg>
+  </a>
+  <div class="u-nav-links">
+    <a class="u-nav-link" href="udeebit-cursos.html">Formación</a>
+    <a class="u-nav-link active" href="udeebit-registro.html">Programas</a>
+    <a class="u-nav-link" href="udeebit-blog.html">Blog</a>
+    <a class="u-nav-link" href="udeebit-contacto.html">Soporte</a>
+  </div>
+  <div class="u-nav-right">
+    <a class="u-btn u-btn-outline" href="udeebit-login.html">Iniciar sesión</a>
+    <a class="u-btn u-btn-primary" href="udeebit-registro.html">Empieza ahora</a>
+  </div>
+</nav>
+
+<!-- ------ PAGE BODY ------ -->
+<div class="page-body">
+  <div class="register-card">
+
+    <div class="card-head">
+      <h1>Regístrate en Udeebit</h1>
+      <p>Crea una cuenta y comienza a aprender<br>trading y activos digitales hoy mismo.</p>
+    </div>
+
+    <!-- Nombre completo -->
+    <div class="form-group">
+      <label class="form-label">Nombre completo</label>
+      <div class="input-wrap">
+        <span class="input-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+        </span>
+        <input type="text" placeholder="Tu nombre completo">
+      </div>
+    </div>
+
+    <!-- Correo electrónico -->
+    <div class="form-group">
+      <label class="form-label">Correo electrónico</label>
+      <div class="input-wrap">
+        <span class="input-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </span>
+        <input type="email" placeholder="tu@email.com">
+      </div>
+    </div>
+
+    <!-- Contraseña -->
+    <div class="form-group">
+      <label class="form-label">Contraseña</label>
+      <div class="input-wrap">
+        <span class="input-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </span>
+        <input type="password" id="pwField" placeholder="Mínimo 8 caracteres">
+        <span class="pw-toggle" onclick="togglePw()">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <!-- Código de socio (opcional) -->
+    <div class="form-group">
+      <label class="form-label">
+        Código de socio <span class="opt">(Opcional)</span>
+      </label>
+      <div class="input-wrap">
+        <span class="input-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+            <line x1="7" y1="7" x2="7.01" y2="7"/>
+          </svg>
+        </span>
+        <input type="text" placeholder="Ingresa tu código de referido">
+      </div>
+    </div>
+
+    <!-- Número de teléfono -->
+    <div class="form-group">
+      <label class="form-label">Número de teléfono</label>
+      <div class="phone-row">
+        <div class="country-select-wrap">
+          <span class="flag">🇪🇸</span>
+          <select class="country-code-select" id="countryCode">
+            <option value="ES">+34</option>
+            <option value="MX">+52</option>
+            <option value="AR">+54</option>
+            <option value="CL">+56</option>
+            <option value="CO">+57</option>
+            <option value="US">+1</option>
+            <option value="GB">+44</option>
+            <option value="BR">+55</option>
+            <option value="PE">+51</option>
+            <option value="VE">+58</option>
+          </select>
+          <span class="country-chevron">▼</span>
+        </div>
+        <div class="input-wrap phone-input-wrap">
+          <span class="input-icon">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.9 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l1.06-1.06a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </span>
+          <input type="tel" id="phoneInput" placeholder="612 345 678">
+        </div>
+      </div>
+    </div>
+
+    <!-- Terms -->
+    <div class="terms-row">
+      <input type="checkbox" class="terms-check" id="terms" checked>
+      <label class="terms-text" for="terms">
+        He leído y acepto los <a href="udeebit-terminos-condiciones.html">Términos de servicio</a> y la
+        <a href="udeebit-politica-privacidad.html">Política de privacidad</a> de Udeebit
+      </label>
+    </div>
+
+    <!-- CTA -->
+    <button class="cta-btn" type="button" onclick="window.location.href='udeebit-cursos.html'">
+      Crear cuenta
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <line x1="5" y1="12" x2="19" y2="12"/>
+        <polyline points="12 5 19 12 12 19"/>
+      </svg>
+    </button>
+
+    <!-- Divider -->
+    <div class="or-divider"><span>o continúa con</span></div>
+
+    <!-- Social -->
+    <div class="social-row">
+      <button class="social-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        Gmail
+      </button>
+    </div>
+
+    <!-- Security -->
+    <div class="security-badge">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+      Protegido con autenticación segura
+    </div>
+
+  </div>
+</div>
+
+<!-- ------ FOOTER ------ -->
+<!-- FOOTER -->
+<!-- FOOTER -->
+<footer class="u-footer">
+  <div class="u-footer-inner">
+    <div class="u-footer-grid">
+      <div>
+        <a class="u-footer-brand-logo" href="udeebit-landing-final.html" aria-label="Udeebit inicio">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 56" height="32" style="display:block;">
+            <text x="4" y="44" font-family="'Sora','Poppins','Arial Black',sans-serif" font-weight="800" font-size="46" fill="#ffffff" letter-spacing="-0.5">Udee</text>
+            <text x="132" y="44" font-family="'Sora','Poppins','Arial Black',sans-serif" font-weight="800" font-size="46" fill="#A78BFA" letter-spacing="-0.5">bit</text>
+          </svg>
+        </a>
+        <p class="u-footer-desc">UDEEBIT ofrece formación en trading, inversiones y mercados financieros a través de programas educativos diseñados para desarrollar conocimiento y criterio en el mundo de las finanzas.</p>
+        <div class="u-footer-socials">
+          <a class="u-footer-social" href="https://www.youtube.com/@Udeebit" title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a class="u-footer-social" href="https://www.tiktok.com/@udeebit" title="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></a>
+          <a class="u-footer-social" href="https://www.instagram.com/udeebiit?igsh=bnVxM25vMG03enpo&utm_source=qr" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a class="u-footer-social" href="https://www.facebook.com/share/1AtNDkmcGt/" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a class="u-footer-social" href="https://x.com/Udeebit" title="X / Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="u-footer-col-title">Formaciones</div>
+        <a class="u-footer-link" href="udeebit-curso-detalle.html">Trading Core: Fundamentos y Práctica</a>
+        <a class="u-footer-link" href="udeebit-curso-cripto.html">Cripto y Blockchain</a>
+        <a class="u-footer-link" href="udeebit-curso-inversiones.html">Inversiones y Estrategias de Patrimonio</a>
+        <a class="u-footer-link" href="udeebit-curso-algoritmico.html">Inversión Algorítmica con MetaTrader</a>
+      </div>
+      <div>
+        <div class="u-footer-col-title">Compañía</div>
+        <a class="u-footer-link" href="udeebit-sobre-nosotros.html">Sobre nosotros</a>
+        <a class="u-footer-link" href="udeebit-blog.html">Blog</a>
+        <a class="u-footer-link" href="udeebit-contacto.html">Soporte</a>
+        <a class="u-footer-link" href="udeebit-terminos-condiciones.html">Términos y Condiciones</a>
+        <a class="u-footer-link" href="udeebit-politica-privacidad.html">Política de Privacidad</a>
+      </div>
+      <div>
+        <div class="u-footer-col-title">Newsletter</div>
+        <p style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:14px;line-height:1.6">Señales de trading y análisis de mercado directo a tu correo.</p>
+        <input type="email" placeholder="Tu correo electrónico" style="width:100%;padding:11px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:#fff;font-size:13px;outline:none;margin-bottom:8px;font-family:inherit">
+        <button style="width:100%;background:#7C3AED;color:#fff;border:none;border-radius:8px;padding:11px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Enviar →</button>
+      </div>
+    </div>
+    <div class="u-footer-bottom">
+      <span>© 2026 Udeebit. Todos los derechos reservados.</span>
+      <div class="u-footer-badges">
+        <span class="u-footer-badge">🔒 SSL Seguro</span>
+        <span class="u-footer-badge">✅ Certificado</span>
+        <a class="u-footer-link" style="margin:0" href="udeebit-politica-privacidad.html">Privacidad</a>
+        <a class="u-footer-link" style="margin:0" href="udeebit-terminos-condiciones.html">Términos</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  function togglePw() {
+    const f = document.getElementById('pwField');
+    f.type = f.type === 'password' ? 'text' : 'password';
+  }
+
+  const countryData = {
+    ES: { flag: '🇪🇸', dial: '+34', placeholder: '612 345 678' },
+    MX: { flag: '🇲🇽', dial: '+52', placeholder: '55 1234 5678' },
+    AR: { flag: '🇦🇷', dial: '+54', placeholder: '11 2345 6789' },
+    CL: { flag: '🇨🇱', dial: '+56', placeholder: '9 1234 5678' },
+    CO: { flag: '🇨🇴', dial: '+57', placeholder: '300 123 4567' },
+    US: { flag: '🇺🇸', dial: '+1', placeholder: '(555) 123-4567' },
+    GB: { flag: '🇬🇧', dial: '+44', placeholder: '07123 456789' },
+    BR: { flag: '🇧🇷', dial: '+55', placeholder: '(11) 91234-5678' },
+    PE: { flag: '🇵🇪', dial: '+51', placeholder: '912 345 678' },
+    VE: { flag: '🇻🇪', dial: '+58', placeholder: '412 123 4567' }
+  };
+
+  const countrySelect = document.getElementById('countryCode');
+  const countryFlag = document.querySelector('.flag');
+  const phoneInput = document.getElementById('phoneInput');
+
+  function syncCountryUI() {
+    const selected = countryData[countrySelect.value] || countryData.ES;
+    countryFlag.textContent = selected.flag;
+    phoneInput.placeholder = selected.placeholder;
+  }
+
+  countrySelect.addEventListener('change', syncCountryUI);
+  syncCountryUI();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

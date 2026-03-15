@@ -1,0 +1,523 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Udeebit - Politica de Privacidad</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --p: #7C3AED;
+  --p2: #6D28D9;
+  --pa: #EDE9FE;
+  --pa2: #F5F3FF;
+  --txt: #1E1B4B;
+  --muted: #6B7280;
+  --border: #E5E7EB;
+  --bg: #F5F4FF;
+  --card: #FFFFFF;
+  --r: 12px;
+  --r2: 18px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--txt);
+  line-height: 1.65;
+}
+a { color: inherit; text-decoration: none; }
+
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center;
+  padding: 0 32px; height: 58px;
+  box-shadow: 0 1px 8px rgba(0,0,0,.06);
+}
+.nav-logo { display: flex; align-items: center; gap: 9px; margin-right: 32px; text-decoration: none; }
+.nav-logo-img { height: 32px; width: auto; display: block; }
+.nav-logo-mobile { display: none; }
+.nav-logo-icon {
+  width: 34px; height: 34px; border-radius: 10px;
+  background: linear-gradient(135deg, #7C3AED, #4F46E5);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Sora', sans-serif; font-weight: 800; color: #fff; font-size: 18px;
+}
+.nav-logo-text { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 18px; }
+.nav-links { display: flex; flex: 1; }
+.nav-link {
+  padding: 0 16px; height: 58px; display: flex; align-items: center;
+  font-size: 14px; font-weight: 500; color: var(--muted);
+  border-bottom: 2px solid transparent; transition: .2s;
+}
+.nav-link:hover, .nav-link.active { color: var(--p); border-bottom-color: var(--p); }
+.nav-right { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+.btn-nav {
+  background: var(--p); color: #fff; border: none; border-radius: 10px;
+  padding: 9px 16px; font-size: 13px; font-weight: 700;
+  cursor: pointer; font-family: inherit;
+}
+.btn-nav:hover { background: var(--p2); }
+.btn-nav.btn-outline {
+  background: #fff;
+  color: var(--p);
+  border: 1px solid #C4B5FD;
+}
+.btn-nav.btn-outline:hover {
+  background: #F5F3FF;
+}
+
+.ticker {
+  background: #fff; border-bottom: 1px solid var(--border);
+  padding: 8px 32px; font-size: 12px; color: var(--muted);
+}
+
+.breadcrumb {
+  padding: 12px 32px; font-size: 13px; color: var(--muted);
+  display: flex; align-items: center; gap: 6px;
+  background: #fff; border-bottom: 1px solid var(--border);
+}
+.breadcrumb .current { color: var(--txt); font-weight: 600; }
+
+.hero {
+  padding: 28px 32px 12px;
+}
+.hero-card {
+  max-width: 1200px; margin: 0 auto;
+  background: linear-gradient(135deg, #4C1D95, #7C3AED 55%, #4F46E5);
+  color: #fff; border-radius: var(--r2);
+  padding: 28px 30px;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .5px; padding: 5px 12px;
+  border-radius: 999px; background: rgba(253,230,138,.18);
+  color: #FDE68A; border: 1px solid rgba(253,230,138,.28);
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-family: 'Sora', sans-serif; font-size: 34px;
+  font-weight: 800; line-height: 1.15; margin-bottom: 8px;
+}
+.hero p { color: rgba(255,255,255,.82); font-size: 14px; }
+
+.layout {
+  max-width: 1200px; margin: 0 auto;
+  padding: 18px 32px 34px;
+  display: grid; grid-template-columns: 280px 1fr; gap: 20px;
+}
+.toc {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 16px;
+  height: fit-content; position: sticky; top: 86px;
+}
+.toc h3 {
+  font-family: 'Sora', sans-serif; font-size: 14px; margin-bottom: 10px;
+}
+.toc ul { list-style: none; display: grid; gap: 8px; }
+.toc a {
+  font-size: 13px; color: var(--muted);
+  padding: 7px 8px; border-radius: 8px; display: block;
+}
+.toc a:hover { background: var(--pa2); color: var(--p); }
+
+.content {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--r2); padding: 24px;
+}
+.content .intro {
+  font-size: 15px; color: #373361; margin-bottom: 16px;
+}
+.section {
+  border-top: 1px solid #EFEFF6;
+  padding-top: 18px; margin-top: 18px;
+}
+.section:first-of-type { border-top: 0; margin-top: 8px; padding-top: 0; }
+.section h2 {
+  font-family: 'Sora', sans-serif; font-size: 19px;
+  margin-bottom: 10px; line-height: 1.25;
+}
+.section h3 {
+  font-family: 'Sora', sans-serif; font-size: 15px;
+  margin: 12px 0 6px;
+}
+.section p {
+  font-size: 14px; color: #3D3A68;
+  margin-bottom: 10px;
+}
+
+footer {
+  margin-top: 16px; background: #fff; border-top: 1px solid var(--border);
+  padding: 16px 32px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+}
+.footer-logo { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1rem; }
+.footer-copy { font-size: .78rem; color: var(--muted); }
+.footer-links { margin-left: auto; display: flex; gap: 1.2rem; }
+.footer-links a { font-size: .78rem; color: var(--muted); }
+.footer-links a:hover { color: var(--p); }
+
+@media (max-width: 980px) {
+  .layout { grid-template-columns: 1fr; }
+  .toc { position: static; }
+}
+@media (max-width: 760px) {
+  .navbar { padding: 0 14px; }
+  .nav-links { display: none; }
+  .ticker, .breadcrumb, .hero { padding-left: 14px; padding-right: 14px; }
+  .hero h1 { font-size: 27px; }
+  .layout { padding: 14px; }
+  .content { padding: 16px; }
+  footer { padding: 14px; }
+  .footer-links { margin-left: 0; width: 100%; }
+  .nav-logo-desktop, .footer-logo-desktop { display: none; }
+  .nav-logo-mobile, .footer-logo-mobile { display: block; }
+  .nav-logo-mobile { height: 30px; }
+  .footer-logo-mobile { height: 30px; }
+}
+/* Landing footer shared across all windows */
+.footer {
+  background:#0F0E1A; color:rgba(255,255,255,.7);
+  padding:56px 40px 28px;
+}
+.footer-inner { max-width:1200px; margin:0 auto; }
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px; }
+.footer-brand-logo { display:flex; align-items:center; gap:10px; margin-bottom:16px; text-decoration:none; width:fit-content; }
+.footer-logo-img { height: 34px; width: auto; display: block; }
+.footer-logo-mobile { display: none; }
+@media (max-width: 760px) {
+  .nav-logo-desktop, .footer-logo-desktop { display: none; }
+  .nav-logo-mobile, .footer-logo-mobile { display: block; }
+  .nav-logo-mobile { height: 30px; }
+  .footer-logo-mobile { height: 30px; }
+}
+.footer-brand-logo .logo-icon {
+  width:36px; height:36px; background:linear-gradient(135deg,#7C3AED,#4F46E5);
+  border-radius:10px; display:flex; align-items:center; justify-content:center;
+  font-family:'Sora',sans-serif; font-weight:800; color:#fff; font-size:18px;
+}
+.footer-brand-logo .logo-txt { font-family:'Sora',sans-serif; font-weight:800; font-size:18px; color:#fff; }
+.footer-desc { font-size:14px; line-height:1.7; margin-bottom:24px; }
+.footer-socials { display:flex; gap:10px; }
+.footer-social {
+  width:36px; height:36px; border-radius:8px; background:rgba(255,255,255,.08);
+  display:flex; align-items:center; justify-content:center; font-size:16px;
+  cursor:pointer; transition:.2s;
+}
+.footer-social:hover { background:var(--p); }
+.footer-col-title { font-family:'Sora',sans-serif; font-size:14px; font-weight:700; color:#fff; margin-bottom:18px; }
+.footer-link { display:block; font-size:13px; color:rgba(255,255,255,.55); margin-bottom:10px; cursor:pointer; transition:.2s; }
+.footer-link:hover { color:#fff; }
+.footer-bottom {
+  border-top:1px solid rgba(255,255,255,.08); padding-top:24px;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  font-size:12px; color:rgba(255,255,255,.35);
+}
+.footer-badges { display:flex; gap:12px; align-items:center; }
+.footer-badge {
+  background:rgba(255,255,255,.06); border-radius:6px;
+  padding:5px 10px; font-size:11px; color:rgba(255,255,255,.4);
+  border:1px solid rgba(255,255,255,.08);
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="udeebit-landing (4).html" class="nav-logo">
+    <img class="nav-logo-img nav-logo-desktop" src="logo-horizontal.svg" alt="Udeebit">
+    <img class="nav-logo-img nav-logo-mobile" src="logo-icono.svg" alt="Udeebit">
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="udeebit-registro (1).html">Formación</a>
+    <a class="nav-link" href="udeebit-registro (1).html">Programas</a>
+    <a class="nav-link" href="javascript:void(0)" onclick="alert('Blog en construcción')">Blog</a>
+    <a class="nav-link" href="udeebit-contacto.html">Soporte</a>
+  </div>
+  <div class="nav-right">
+    <a href="udeebit-login (1).html"><button class="btn-nav btn-outline">Iniciar sesión</button></a>
+    <a href="udeebit-registro (1).html"><button class="btn-nav">Regístrate</button></a>
+  </div>
+</nav>
+
+<div class="ticker">Documento base para publicacion en sitio web - Marca: UDEEBIT - Naturaleza: academia no centralizada de educacion en inversiones y productos financieros</div>
+
+<div class="breadcrumb">
+  <a href="udeebit-landing (4).html">Inicio</a>
+  <span>/</span>
+  <span class="current">Politica de Privacidad</span>
+</div>
+
+<section class="hero">
+  <div class="hero-card">
+    <div class="hero-tag">Documento Legal</div>
+    <h1>Politica de Privacidad de UDEEBIT</h1>
+    <p>Ultima actualizacion: [colocar fecha] - Nota importante: este documento tiene caracter educativo, informativo y contractual, y debera ser revisado por asesoria legal local antes de su publicacion definitiva.</p>
+  </div>
+</section>
+
+<main class="layout">
+  <aside class="toc">
+    <h3>Indice</h3>
+    <ul>
+      <li><a href="#s1">1. Consentimiento del usuario</a></li>
+      <li><a href="#s2">2. Tipos de informacion</a></li>
+      <li><a href="#s3">3. Forma de recopilacion</a></li>
+      <li><a href="#s4">4. Principios de tratamiento</a></li>
+      <li><a href="#s5">5. Uso de informacion</a></li>
+      <li><a href="#s6">6. Naturaleza educativa</a></li>
+      <li><a href="#s7">7. Comunicaciones promocionales</a></li>
+      <li><a href="#s8">8. Retencion</a></li>
+      <li><a href="#s9">9. Seguridad</a></li>
+      <li><a href="#s10">10. Informacion anonima</a></li>
+      <li><a href="#s11">11. Proveedores terceros</a></li>
+      <li><a href="#s12">12. Divulgacion</a></li>
+      <li><a href="#s13">13. Enlaces externos</a></li>
+      <li><a href="#s14">14. Cookies</a></li>
+      <li><a href="#s15">15. Transferencias internacionales</a></li>
+      <li><a href="#s16">16. Usuarios internacionales</a></li>
+      <li><a href="#s17">17. Derechos del usuario</a></li>
+      <li><a href="#s18">18. Menores de edad</a></li>
+      <li><a href="#s19">19. Cambios a la politica</a></li>
+      <li><a href="#s20">20. Contacto</a></li>
+    </ul>
+  </aside>
+
+  <article class="content">
+    <p class="intro">En UDEEBIT reconocemos la importancia de mantener privada, segura y protegida la informacion personal que usted nos proporciona. La presente Politica de Privacidad describe la forma en que recopilamos, usamos, almacenamos, tratamos, protegemos y, en su caso, divulgamos la informacion que usted nos suministra al acceder, navegar, registrarse, comprar, contratar, suscribirse o utilizar nuestro sitio web, plataformas, comunidades, canales de comunicacion, herramientas educativas, clases, recursos, indicadores, software, materiales descargables y demas servicios relacionados (en adelante, los "Servicios").</p>
+    <p class="intro">La presente Politica se aplica, en general, a todos los sitios web, subdominios, plataformas, canales, comunidades y medios digitales operados por UDEEBIT, o por terceros que actuen en nuestro nombre, incluyendo sin limitar, nuestra pagina web, zona de usuarios, plataformas educativas, canales de mensajeria, redes sociales, webinars, grupos privados, aulas virtuales, software, indicadores, recursos descargables, sistemas de membresia, y toda otra via de interaccion digital o electronica relacionada con nuestros Servicios.</p>
+    <p class="intro">Al acceder o utilizar cualquiera de nuestros Servicios, usted reconoce que ha leido, entendido y aceptado esta Politica de Privacidad. Si no esta de acuerdo con ella, debera abstenerse de usar nuestro sitio web y nuestros Servicios.</p>
+
+    <section class="section" id="s1">
+      <h2>1. Consentimiento del usuario</h2>
+      <p>Al utilizar nuestro sitio web, registrarse en nuestras plataformas, solicitar informacion, contratar servicios, comprar productos digitales, participar en comunidades, acceder a clases o proporcionarnos informacion personal por cualquier medio, usted consiente expresa o tacitamente la recopilacion, uso, almacenamiento, tratamiento y divulgacion de su informacion personal conforme a esta Politica de Privacidad.</p>
+      <p>Su consentimiento podra ser expreso o implicito, segun la naturaleza de la informacion, el tipo de interaccion que mantenga con UDEEBIT, los requerimientos legales aplicables y las circunstancias concretas de cada caso.</p>
+      <p>Si usted no acepta esta Politica de Privacidad, no debera utilizar nuestro sitio, registrarse, facilitar informacion personal ni acceder a nuestros Servicios.</p>
+    </section>
+
+    <section class="section" id="s2">
+      <h2>2. Tipos de informacion que recopilamos</h2>
+      <p>Cuando hacemos referencia a "Informacion Personal", nos referimos a toda aquella informacion que permite identificarlo directa o indirectamente, contactarlo, ubicarlo, individualizarlo o asociarlo razonablemente con una persona determinada.</p>
+      <p>Cuando hacemos referencia a "Informacion No Personal", "Informacion Tecnica" o "Informacion Anonima", nos referimos a la informacion que no permite identificarlo directamente y que puede ser utilizada con fines estadisticos, analiticos, operativos o de mejora de nuestros Servicios.</p>
+      <p>Podemos recopilar, almacenar y tratar las siguientes categorias de informacion:</p>
+
+      <h3>2.a) Informacion de identificacion personal</h3>
+      <p>Podemos recopilar, entre otros: nombre y apellido; documento de identidad cuando resulte necesario; nombre de usuario; fecha de nacimiento; nacionalidad o pais de residencia; direccion de correo electronico; numero de telefono; direccion postal o de facturacion; datos de cuenta o perfil; fotografia de perfil, imagen o avatar, cuando usted lo suministre.</p>
+
+      <h3>2.b) Informacion comercial y de facturacion</h3>
+      <p>Podemos recopilar: datos de pago; historial de compras; metodo de pago; informacion de facturacion; suscripciones activas; renovaciones; comprobantes de pago; transacciones relacionadas con nuestros Servicios.</p>
+      <p>UDEEBIT no necesariamente almacena de manera directa la totalidad de la informacion financiera sensible, ya que ciertas transacciones pueden ser procesadas por terceros especializados en procesamiento de pagos.</p>
+
+      <h3>2.c) Informacion educativa y de uso dentro de la plataforma</h3>
+      <p>Podemos recopilar: cursos adquiridos; clases visualizadas; progreso academico; indicadores o herramientas activadas; recursos descargados; participacion en clases, grupos o comunidades; consultas realizadas a soporte; historial de interacciones con docentes, mentores o miembros del equipo.</p>
+
+      <h3>2.d) Informacion tecnica y de navegacion</h3>
+      <p>Nuestro sitio y nuestras plataformas pueden recopilar automaticamente informacion como: direccion IP; tipo de navegador; version del navegador; dispositivo utilizado; sistema operativo; idioma del navegador; proveedor de servicios de internet; ubicacion aproximada por IP; paginas visitadas; tiempo de permanencia; clics realizados; rutas de navegacion; fecha y hora de acceso; paginas de referencia o salida; incidencias tecnicas; identificadores de cookies y tecnologias similares.</p>
+
+      <h3>2.e) Informacion comunicacional y de soporte</h3>
+      <p>Podemos recopilar el contenido de: correos electronicos; formularios de contacto; tickets de soporte; mensajes enviados por chat; mensajes en grupos privados; comunicaciones realizadas por plataformas de videoconferencia; respuestas a encuestas, formularios, evaluaciones o cuestionarios.</p>
+
+      <h3>2.f) Informacion proporcionada en comunidades y entornos colaborativos</h3>
+      <p>Si usted participa en grupos, comunidades, webinars en vivo, foros, chats o espacios interactivos vinculados con UDEEBIT, podremos recopilar la informacion que usted voluntariamente haga visible o comparta dentro de dichos espacios.</p>
+    </section>
+
+    <section class="section" id="s3">
+      <h2>3. Forma en que recopilamos la informacion</h2>
+      <p>Podemos recopilar su informacion por diferentes medios, incluyendo, pero no limitandose a: cuando usted visita nuestro sitio web; cuando crea una cuenta; cuando se suscribe a una membresia; cuando compra un curso, programa, software, indicador o producto digital; cuando se registra en webinars, clases o eventos; cuando responde formularios, encuestas o evaluaciones; cuando se comunica con soporte; cuando participa en comunidades privadas; cuando interactua con nuestros correos, anuncios o campanas; cuando utiliza herramientas de la plataforma; cuando terceros procesadores de pago, afiliados o proveedores nos transmiten informacion relacionada con sus compras o uso de los Servicios; y mediante cookies, pixeles, etiquetas y tecnologias similares.</p>
+    </section>
+
+    <section class="section" id="s4">
+      <h2>4. Principios de tratamiento de la informacion personal</h2>
+      <p>Siempre que recopilemos o tratemos informacion personal en UDEEBIT, procuraremos actuar conforme a los siguientes principios: recopilar unicamente la informacion necesaria, pertinente y no excesiva para los fines informados; tratar la informacion de manera licita, leal y transparente; utilizar la informacion solo para fines determinados, explicitos y legitimos; mantener la informacion razonablemente actualizada, cuando sea posible; conservar la informacion solo por el tiempo necesario para cumplir con los fines para los que fue recopilada, salvo que la ley exija o permita un plazo mayor; adoptar medidas razonables de seguridad para proteger la informacion; no vender su informacion personal a terceros como base de negocio; y respetar los derechos que la legislacion aplicable le reconozca respecto de sus datos.</p>
+    </section>
+
+    <section class="section" id="s5">
+      <h2>5. Uso de su informacion personal</h2>
+      <p>Podemos utilizar su informacion personal para una o varias de las siguientes finalidades: crear, registrar, administrar y mantener su cuenta de usuario; darle acceso a nuestros cursos, clases, productos, membresias, software, indicadores, materiales, herramientas y demas Servicios; verificar su identidad y validar su acceso; procesar pagos, renovaciones, suscripciones y transacciones; emitir facturas, comprobantes o registros administrativos; prestarle soporte tecnico, academico, administrativo o comercial; responder consultas, solicitudes o reclamos; enviarle notificaciones operativas o administrativas relacionadas con su cuenta o con los Servicios; informarle sobre cambios en nuestras politicas, terminos, accesos, productos o plataformas; personalizar su experiencia de usuario; mostrarle contenidos, materiales o recomendaciones acordes con sus intereses, historial de uso o nivel de acceso; permitirle participar en clases en vivo, sesiones grupales, mentorias, webinars o comunidades; organizar, administrar y mejorar nuestras metodologias formativas; monitorear el funcionamiento y rendimiento de nuestros sistemas; detectar accesos no autorizados, fraudes, usos indebidos o vulneraciones a nuestra propiedad intelectual; analizar metricas de uso, rendimiento, retencion, comportamiento y experiencia de usuario; enviarle boletines, correos promocionales, invitaciones, lanzamientos, ofertas, novedades y comunicaciones de marketing relacionadas con UDEEBIT, siempre conforme a la normativa aplicable; generar estadisticas internas, informes agregados o metricas anonimas para fines academicos, analiticos, comerciales, estrategicos o de mejora del servicio; proteger nuestros derechos legales, contractuales, tecnologicos y comerciales; y cumplir con obligaciones legales, regulatorias, fiscales, contables o judiciales.</p>
+    </section>
+
+    <section class="section" id="s6">
+      <h2>6. Naturaleza educativa e informativa de nuestros servicios</h2>
+      <p>UDEEBIT es una academia no centralizada de educacion en inversiones, mercados y productos financieros. En este contexto, parte de la informacion que recopilamos se utiliza para operar y mejorar nuestros Servicios educativos.</p>
+      <p>UDEEBIT puede reunir docentes, instructores, mentores, analistas, expositores y colaboradores ubicados en distintas regiones del mundo, con enfoques, experiencias, metodologias y estilos de ensenanza diversos. La participacion de dichos docentes o colaboradores no implica uniformidad metodologica absoluta ni constituye asesoria financiera personalizada.</p>
+      <p>La informacion personal que recopilamos podra ser utilizada para facilitar su acceso a este ecosistema educativo, gestionar su progreso, identificar los productos contratados, personalizar su experiencia y operar adecuadamente la plataforma.</p>
+    </section>
+
+    <section class="section" id="s7">
+      <h2>7. Comunicaciones promocionales y derecho de exclusion</h2>
+      <p>Podemos enviarle correos electronicos, mensajes y otras comunicaciones electronicas con fines informativos, promocionales, educativos, administrativos o comerciales.</p>
+      <p>Estas comunicaciones pueden incluir: novedades de la academia; aperturas o cierres de inscripciones; actualizaciones de membresia; lanzamientos de cursos; invitaciones a eventos; recordatorios de clases; contenido educativo; promociones; y comunicaciones estrategicas relacionadas con los Servicios.</p>
+      <p>Usted podra optar por no recibir comunicaciones promocionales en cualquier momento mediante el enlace de cancelacion de suscripcion incluido en nuestros correos o escribiendonos por los medios de contacto oficiales.</p>
+      <p>Aun cuando usted decida no recibir mensajes promocionales, podremos seguir enviandole comunicaciones esenciales de caracter administrativo, tecnico, contractual o relacionadas con el servicio, tales como avisos de acceso, renovacion, cambios de politicas, confirmaciones de compra, soporte y mensajes operativos.</p>
+    </section>
+
+    <section class="section" id="s8">
+      <h2>8. Retencion y conservacion de la informacion</h2>
+      <p>Conservaremos su informacion personal durante el tiempo que sea razonablemente necesario para: proporcionarle los Servicios; mantener su cuenta o historial de cliente; cumplir obligaciones contractuales; resolver controversias; hacer cumplir nuestros acuerdos; cumplir obligaciones legales, regulatorias, fiscales o contables; resguardar evidencia sobre compras, licencias, accesos y propiedad intelectual; y prevenir fraude, abuso o uso no autorizado.</p>
+      <p>Aun cuando usted solicite la eliminacion de ciertos datos o cancele su cuenta, podremos conservar determinada informacion durante un periodo razonable o por el plazo exigido por la ley, para fines legitimos de negocio, cumplimiento normativo, defensa legal, auditoria, seguridad o integridad operativa.</p>
+    </section>
+
+    <section class="section" id="s9">
+      <h2>9. Seguridad de la informacion</h2>
+      <p>Adoptamos medidas de seguridad administrativas, tecnicas, contractuales y organizativas razonables para ayudar a proteger su informacion personal contra acceso no autorizado, divulgacion, perdida, alteracion, destruccion o uso indebido.</p>
+      <p>Estas medidas pueden incluir, entre otras: uso de plataformas seguras; protocolos de acceso restringido; cifrado o medidas de seguridad equivalentes en ciertos procesos; controles internos de acceso; autenticacion en plataformas; monitoreo de actividad sospechosa; proveedores especializados de alojamiento y procesamiento; y medidas de respaldo y recuperacion.</p>
+      <p>No obstante, usted reconoce que ningun sistema conectado a Internet es completamente seguro y que ninguna transmision electronica o almacenamiento digital puede garantizar seguridad absoluta. En consecuencia, aunque hacemos esfuerzos comercialmente razonables para proteger su informacion, no podemos asegurar ni garantizar que no se produzcan incidentes de seguridad, accesos indebidos, interceptaciones o fallas externas.</p>
+    </section>
+
+    <section class="section" id="s10">
+      <h2>10. Informacion anonima, agregada y estadistica</h2>
+      <p>Podemos transformar determinada informacion personal en informacion anonima o agregada eliminando elementos identificables o vinculantes. Podemos utilizar dicha informacion anonima, agregada o estadistica para cualquier proposito legitimo, incluyendo: analisis de comportamiento; mejora de productos y servicios; segmentacion academica o comercial; estudios internos; optimizacion del sitio; reportes de rendimiento; estrategias de crecimiento; y promocion general de resultados agregados de la plataforma.</p>
+      <p>La informacion anonima o agregada no pretende identificar personalmente a ningun usuario especifico.</p>
+    </section>
+
+    <section class="section" id="s11">
+      <h2>11. Proveedores de servicios de terceros</h2>
+      <p>UDEEBIT puede utilizar proveedores de servicios de terceros para operar adecuadamente su negocio, sitio web, academia, infraestructura y Servicios. Dichos terceros pueden incluir, entre otros: procesadores de pago; plataformas educativas; herramientas de automatizacion; herramientas de analitica; servicios de alojamiento web o en la nube; servicios de correo electronico; plataformas de videoconferencia; herramientas de soporte; software de CRM; sistemas de automatizacion de marketing; herramientas de seguridad; servicios de almacenamiento; y plataformas para grupos, membresias o comunidad.</p>
+      <p>Estos proveedores pueden acceder o tratar cierta informacion personal unicamente en la medida necesaria para prestarnos los servicios contratados y conforme a sus propios terminos y politicas.</p>
+      <p>En general, procuramos que estos terceros solo traten su informacion de acuerdo con nuestras instrucciones, finalidades legitimas del servicio y obligaciones aplicables. Sin embargo, cada tercero puede estar sujeto a sus propias politicas de privacidad, practicas operativas y jurisdicciones.</p>
+      <p>Le recomendamos revisar las politicas de privacidad de los terceros que intervengan en su experiencia de compra, acceso, pago o participacion dentro de nuestros Servicios.</p>
+    </section>
+
+    <section class="section" id="s12">
+      <h2>12. Divulgacion de informacion a terceros</h2>
+      <p>Podremos divulgar informacion personal a terceros unicamente en los casos permitidos por la ley o contemplados en esta Politica, incluyendo, sin limitar: cuando sea necesario para procesar pagos, prestar el servicio o ejecutar funcionalidades solicitadas por usted; cuando sea necesario para proveedores tecnologicos o administrativos que actuan en nuestro nombre; cuando usted lo solicite o autorice; para cumplir con una obligacion legal, judicial o regulatoria; para responder a requerimientos validos de autoridades competentes; para investigar posibles fraudes, delitos, infracciones contractuales o usos indebidos; para proteger nuestros derechos, propiedad, sistemas, marca, herramientas, materiales, usuarios o equipo; y en caso de reorganizacion empresarial, fusion, compra, venta de activos, cesion de cartera, inversion, disolucion o proceso similar, en cuyo caso podremos transferir informacion como parte de los activos del negocio, sujeto a medidas razonables de proteccion.</p>
+    </section>
+
+    <section class="section" id="s13">
+      <h2>13. Enlaces a sitios web de terceros</h2>
+      <p>Nuestro sitio web o nuestros materiales pueden contener enlaces a sitios, plataformas, redes, softwares o servicios de terceros que no son operados directamente por UDEEBIT.</p>
+      <p>Dichos enlaces se proporcionan unicamente como una facilidad para el usuario y no implican aprobacion, asociacion, patrocinio ni responsabilidad por parte de UDEEBIT respecto del contenido, funcionamiento, seguridad, politicas de privacidad o practicas de dichos terceros.</p>
+      <p>Usted reconoce y acepta que UDEEBIT no controla esos sitios externos y no sera responsable por el tratamiento de datos o por cualquier dano, perdida o consecuencia derivada de su acceso o uso de dichos sitios. Recomendamos que revise cuidadosamente las politicas de privacidad y terminos de cada tercero antes de proporcionar cualquier informacion personal.</p>
+    </section>
+
+    <section class="section" id="s14">
+      <h2>14. Uso de cookies y tecnologias similares</h2>
+      <p>Utilizamos cookies, etiquetas, scripts, pixeles y tecnologias similares para mejorar la experiencia del usuario, comprender el comportamiento de navegacion, analizar rendimiento, recordar preferencias, administrar sesiones, reforzar seguridad, personalizar contenidos y ejecutar campanas de comunicacion o marketing.</p>
+      <p>Las cookies pueden ser: cookies de sesion; cookies persistentes; cookies analiticas; cookies funcionales; cookies publicitarias; y cookies de terceros.</p>
+      <p>Usted puede gestionar, bloquear o eliminar cookies desde la configuracion de su navegador. No obstante, la desactivacion de cookies puede afectar el correcto funcionamiento de determinadas funciones del sitio o impedir el acceso a ciertas areas, herramientas o recursos.</p>
+    </section>
+
+    <section class="section" id="s15">
+      <h2>15. Transferencias internacionales de datos</h2>
+      <p>Debido a la naturaleza digital y no centralizada de UDEEBIT, sus datos pueden ser almacenados, procesados o accedidos desde distintos paises, ya sea por nuestro equipo, nuestros proveedores tecnologicos o nuestros docentes y colaboradores, segun corresponda.</p>
+      <p>Al utilizar nuestros Servicios y proporcionarnos informacion, usted reconoce y acepta que su informacion puede ser transferida, almacenada o procesada en jurisdicciones distintas a la suya, incluidas aquellas cuyas leyes de proteccion de datos puedan no ofrecer el mismo nivel de proteccion que las de su pais de residencia.</p>
+      <p>En la medida exigida por la normativa aplicable, adoptaremos medidas razonables para procurar que dichas transferencias se realicen bajo mecanismos adecuados.</p>
+    </section>
+
+    <section class="section" id="s16">
+      <h2>16. Usuarios internacionales y uso fuera del pais de operacion</h2>
+      <p>Si usted accede a nuestros Servicios desde fuera del pais principal de operacion de UDEEBIT, entiende y acepta que sus datos podran ser tratados internacionalmente conforme a la presente Politica.</p>
+      <p>Es su responsabilidad verificar si el uso de nuestros Servicios es legal en su jurisdiccion y si sus propias normas locales le imponen restricciones adicionales.</p>
+    </section>
+
+    <section class="section" id="s17">
+      <h2>17. Derechos del usuario sobre sus datos</h2>
+      <p>Dependiendo de la ley aplicable en su jurisdiccion, usted puede tener derecho a: acceder a la informacion personal que tengamos sobre usted; solicitar la rectificacion o actualizacion de datos inexactos; solicitar la supresion de determinada informacion; oponerse a ciertos tratamientos; limitar el tratamiento en determinados supuestos; retirar su consentimiento cuando el tratamiento se base en el; solicitar portabilidad de datos, cuando corresponda; y presentar una reclamacion ante la autoridad competente.</p>
+      <p>Podremos solicitarle verificar su identidad antes de responder determinadas solicitudes y podremos negar, limitar o diferir el cumplimiento de una solicitud cuando ello sea legalmente procedente, tecnicamente inviable, afecte derechos de terceros, comprometa seguridad o resulte incompatible con obligaciones legales o con la defensa legitima de nuestros derechos.</p>
+    </section>
+
+    <section class="section" id="s18">
+      <h2>18. Menores de edad</h2>
+      <p>Nuestros Servicios no estan dirigidos a menores de dieciocho (18) anos. No recopilamos deliberadamente informacion personal de menores de edad.</p>
+      <p>Si tomamos conocimiento de que una persona menor de 18 anos nos ha proporcionado informacion personal sin la autorizacion correspondiente, podremos eliminar dicha informacion y cancelar cualquier acceso relacionado.</p>
+      <p>Si usted considera que un menor de edad nos ha suministrado datos personales, debera contactarnos de inmediato.</p>
+    </section>
+
+    <section class="section" id="s19">
+      <h2>19. Cambios a esta Politica de Privacidad</h2>
+      <p>Nos reservamos el derecho de modificar, actualizar, ampliar o reemplazar esta Politica de Privacidad en cualquier momento, a nuestra sola discrecion.</p>
+      <p>En caso de cambios, la version actualizada sera publicada en nuestro sitio web con la fecha de ultima actualizacion correspondiente. En determinados casos, podremos ademas notificar dichos cambios por correo electronico, aviso dentro de la plataforma o por otros medios razonables.</p>
+      <p>El uso continuado de nuestros Servicios despues de la entrada en vigencia de una nueva version constituira aceptacion de la politica modificada.</p>
+    </section>
+
+    <section class="section" id="s20">
+      <h2>20. Contacto</h2>
+      <p>Si tiene dudas, preguntas, solicitudes o comentarios relacionados con esta Politica de Privacidad o con el tratamiento de sus datos personales, puede contactarnos a traves de los medios oficiales de UDEEBIT:</p>
+      <p>Correo electronico: admin@udeebit.com</p>
+      <p>Sitio web: [colocar URL oficial]</p>
+      <p>Nombre comercial / empresa: UDEEBIT</p>
+    </section>
+  </article>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <a class="footer-brand-logo" href="udeebit-landing (4).html" aria-label="Udeebit inicio">
+          <img class="footer-logo-img footer-logo-desktop" src="logo-horizontal.svg" alt="Udeebit">
+          <img class="footer-logo-img footer-logo-mobile" src="logo-icono.svg" alt="Udeebit">
+        </a>
+        <p class="footer-desc">UDEEBIT ofrece formación en trading, inversiones y mercados financieros a través de programas educativos diseñados para desarrollar conocimiento y criterio en el mundo de las finanzas.</p>
+        <div class="footer-socials">
+          <!-- YouTube -->
+          <a class="footer-social" href="#" title="YouTube">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <!-- TikTok -->
+          <a class="footer-social" href="#" title="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+          </a>
+          <!-- Instagram -->
+          <a class="footer-social" href="#" title="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <!-- Facebook -->
+          <a class="footer-social" href="#" title="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <!-- X/Twitter -->
+          <a class="footer-social" href="#" title="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Formaciones</div>
+        <a class="footer-link" href="udeebit-registro (1).html">Trading Core: Fundamentos y Práctica</a>
+        <a class="footer-link" href="udeebit-registro (1).html">Crypto & Blockchain</a>
+        <a class="footer-link" href="udeebit-registro (1).html">Inversiones: Conceptos y Estrategias</a>
+        <a class="footer-link" href="udeebit-registro (1).html">Inversiones Algorítmicas</a>
+        <a class="footer-link" href="udeebit-registro (1).html">Inversión en Bolsa</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Compañía</div>
+        <a class="footer-link" href="udeebit-terminos-condiciones.html">Sobre nosotros</a>
+        <a class="footer-link" href="javascript:void(0)" onclick="alert('Blog en construcción')">Blog</a>
+        <a class="footer-link" href="udeebit-contacto.html">Soporte</a>
+        <a class="footer-link" href="udeebit-terminos-condiciones.html">Términos y Condiciones</a>
+        <a class="footer-link" href="udeebit-politica-privacidad.html">Política de Privacidad</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Newsletter</div>
+        <p style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:14px;line-height:1.6">Señales de trading y análisis de mercado directo a tu correo.</p>
+        <input type="email" placeholder="Tu correo electrónico" style="width:100%;padding:11px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:#fff;font-size:13px;outline:none;margin-bottom:8px;font-family:inherit">
+        <button style="width:100%;background:var(--p);color:#fff;border:none;border-radius:8px;padding:11px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Enviar →</button>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Udeebit. Todos los derechos reservados.</span>
+      <div class="footer-badges">
+        <span class="footer-badge">🔒 SSL Seguro</span>
+        <span class="footer-badge">✅ Certificado</span>
+        <a class="footer-link" style="margin:0" href="udeebit-politica-privacidad.html">Privacidad</a>
+        <a class="footer-link" style="margin:0" href="udeebit-terminos-condiciones.html">Términos</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
