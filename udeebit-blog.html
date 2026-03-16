@@ -4,6 +4,8 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Udeebit Blog – Análisis de mercados y educación financiera</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -107,6 +109,28 @@ img{display:block;max-width:100%;}
 .u-btn-outline{background:transparent;border:1.5px solid #7C3AED;color:#7C3AED;}.u-btn-outline:hover{background:#EDE9FE;}
 .u-btn-primary{background:#7C3AED;color:#fff;}.u-btn-primary:hover{background:#6D28D9;transform:translateY(-1px);}
 
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .u-navbar{padding:0 16px;flex-wrap:wrap;height:auto;min-height:56px;}
+  .u-nav-links{display:none;}
+  .u-nav-right{gap:6px;}
+  .u-btn{padding:7px 14px;font-size:12px;}
+  .blog-hero{padding:40px 16px;}
+  .blog-hero h1{font-size:30px;}
+  .cats{padding:16px;}
+  .blog-wrap{padding:24px 16px;}
+  .blog-grid{grid-template-columns:1fr;gap:24px;}
+  .arts-grid{grid-template-columns:1fr;gap:16px;}
+  .featured-img{height:200px;}
+  .sidebar{margin-top:0;}
+  .u-footer{padding:40px 16px 20px;}
+  .u-footer-grid{grid-template-columns:1fr 1fr;gap:24px;}
+}
+@media(max-width:480px){
+  .u-footer-grid{grid-template-columns:1fr;}
+  .blog-hero h1{font-size:26px;}
+}
 </style>
 </head>
 <body>
@@ -156,7 +180,7 @@ img{display:block;max-width:100%;}
       <!-- FEATURED -->
       <div class="featured-card">
         <div class="featured-img">
-          <img src="FOTOS UDEEBIT/Stock Market Trading.jpg" alt="Análisis técnico">
+          <img src="BLOG IMAGEN 1- Stock Market Trading.jpg" alt="Análisis técnico">
           <span class="art-cat">Análisis Técnico</span>
           <span class="art-read">📖 8 min lectura</span>
         </div>
@@ -176,7 +200,7 @@ img{display:block;max-width:100%;}
       <div class="arts-grid">
         <div class="art-card">
           <div class="art-card-img">
-            <img src="FOTOS UDEEBIT/trading,crypto.jpg" alt="Bitcoin">
+            <img src="BLOG IMAGEN 2-trading,crypto.jpg" alt="Bitcoin">
             <span class="art-cat" style="font-size:10px;padding:4px 10px;">Cripto</span>
           </div>
           <div class="art-card-body">
@@ -189,20 +213,20 @@ img{display:block;max-width:100%;}
 
         <div class="art-card">
           <div class="art-card-img">
-            <img src="FOTOS UDEEBIT/Day trading.jpg" alt="Fondos indexados">
+            <img src="BLOG IMAGEN 3- Day trading.jpg" alt="Fondos indexados">
             <span class="art-cat" style="font-size:10px;padding:4px 10px;">Inversión</span>
           </div>
           <div class="art-card-body">
             <div class="art-card-cat">Inversión · Patrimonio</div>
             <div class="art-card-title">Por qué los fondos indexados siguen siendo la estrategia favorita de los grandes inversores</div>
             <p class="art-card-excerpt">Desde Warren Buffett hasta los fondos de pensiones de los países más desarrollados, la inversión pasiva en índices ha demostrado ser una de las estrategias más eficientes a largo plazo.</p>
-            <div class="art-card-meta">Kael Zárkov · 15 Ene 2026 · 7 min</div>
+            <div class="art-card-meta">Fabia Antoconallezzi · 15 Ene 2026 · 7 min</div>
           </div>
         </div>
 
         <div class="art-card">
           <div class="art-card-img">
-            <img src="FOTOS UDEEBIT/FTMO Funding Certificate Award ACrylic Plaque.jpg" alt="Gestión de riesgo">
+            <img src="BLOG IMAGEN 4- FTMO Funding Certificate Award ACrylic Plaque.jpg" alt="Gestión de riesgo">
             <span class="art-cat" style="font-size:10px;padding:4px 10px;">Gestión de Riesgo</span>
           </div>
           <div class="art-card-body">
@@ -215,20 +239,20 @@ img{display:block;max-width:100%;}
 
         <div class="art-card">
           <div class="art-card-img">
-            <img src="FOTOS UDEEBIT/treading vives.jpg" alt="Expert Advisors">
+            <img src="BLOG IMAGEN 5-treading vives.jpg" alt="Expert Advisors">
             <span class="art-cat" style="font-size:10px;padding:4px 10px;">Algorítmico</span>
           </div>
           <div class="art-card-body">
             <div class="art-card-cat">Trading Algorítmico · MetaTrader</div>
             <div class="art-card-title">Cómo evaluar un Expert Advisor antes de activarlo en una cuenta real</div>
             <p class="art-card-excerpt">No todos los robots de trading son iguales. Antes de dejar que un EA opere con dinero real, hay una serie de métricas y condiciones que cualquier trader debería revisar cuidadosamente.</p>
-            <div class="art-card-meta">Adrian Volkov · 3 Feb 2026 · 6 min</div>
+            <div class="art-card-meta">André Volkov · 3 Feb 2026 · 6 min</div>
           </div>
         </div>
 
         <div class="art-card">
           <div class="art-card-img">
-            <img src="FOTOS UDEEBIT/hand power time.jpg" alt="Psicología">
+            <img src="BLOG IMAGEN 6.jpg" alt="Psicología">
             <span class="art-cat" style="font-size:10px;padding:4px 10px;">Psicología</span>
           </div>
           <div class="art-card-body">
@@ -241,14 +265,14 @@ img{display:block;max-width:100%;}
 
         <div class="art-card">
           <div class="art-card-img">
-            <img src="FOTOS UDEEBIT/descarga (10).jpg" alt="DCA">
+            <img src="BLOG IMAGEN 7.jpg" alt="DCA">
             <span class="art-cat" style="font-size:10px;padding:4px 10px;">Inversión</span>
           </div>
           <div class="art-card-body">
             <div class="art-card-cat">Estrategia · DCA</div>
             <div class="art-card-title">Dollar Cost Averaging: la estrategia de inversión que elimina la necesidad de predecir el mercado</div>
             <p class="art-card-excerpt">Invertir una cantidad fija de forma periódica, independientemente del precio, es una de las estrategias más estudiadas para construir patrimonio con menor exposición a la volatilidad.</p>
-            <div class="art-card-meta">Kael Zárkov · 10 Feb 2026 · 6 min</div>
+            <div class="art-card-meta">Fabia Antoconallezzi · 10 Feb 2026 · 6 min</div>
           </div>
         </div>
       </div>
@@ -272,7 +296,7 @@ img{display:block;max-width:100%;}
         </div>
         <div class="pop-item">
           <span class="pop-num">02</span>
-          <div><div class="pop-title">Qué es el interés compuesto y por qué cambia todo</div><div class="pop-meta">Kael Zárkov · 8 min</div></div>
+          <div><div class="pop-title">Qué es el interés compuesto y por qué cambia todo</div><div class="pop-meta">Fabia Antoconallezzi · 8 min</div></div>
         </div>
         <div class="pop-item">
           <span class="pop-num">03</span>
@@ -365,5 +389,7 @@ img{display:block;max-width:100%;}
     </div>
   </div>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
